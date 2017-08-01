@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.TAccountSourceTest1Mapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.TAccountSourceTest1" > 
+    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="BIT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="contact_address" property="contactaddressC" jdbcType="VARCHAR" />
+    <result column="register_phone" property="registerPhone" jdbcType="VARCHAR" />
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="createddate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="systemmodstamp" property="systemmodstamp" jdbcType="TIMESTAMP" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="datebirth" property="datebirth" jdbcType="VARCHAR" />
+    <result column="contract_phone" property="contractPhone" jdbcType="VARCHAR" />
+    <result column="suspected_flag" property="suspectedFlag" jdbcType="BIT" />
+    <result column="guid" property="guid" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="accountsource" property="accountsource" jdbcType="VARCHAR" />
+    <result column="spare_address" property="spareAddress" jdbcType="VARCHAR" />
+    <result column="spare_contract_phone" property="spareContractPhone" jdbcType="VARCHAR" />
+    <result column="spare_register_phone" property="spareRegisterPhone" jdbcType="VARCHAR" />
+    <result column="spare_card_id" property="spareCardId" jdbcType="VARCHAR" />
+    <result column="main_guid" property="mainGuid" jdbcType="VARCHAR" />
+ 
+  </resultMap>
+  <sql id="Base_Column_List" > 
+    sfid,gender,del_flag,
+    name,contact_address,register_phone,id,createddate,
+    card_id,systemmodstamp,email,datebirth,contract_phone,suspected_flag,
+    guid,phone,accountsource,spare_address,spare_contract_phone,spare_register_phone,spare_card_id,main_guid
+  </sql>
+  
+  <select id="getAccountList" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from t_account_source_test1
+    where suspected_flag = '1'
+    order by (card_id,phone,name)
+  </select>
+  
+  <select id="getCombineAccountList" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from t_account_source_test1
+    where suspected_flag in ('0','2')
+    and main_guid in (select main_guid
+    from t_account_source_test1
+    where suspected_flag = '1')
+  </select>
+  
+  <select id="SelectByCardId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  	 select 
+    <include refid="Base_Column_List" />
+    from t_account_source_test1
+    where card_id = #{cardId}
+    and suspected_flag = '1'
+  </select>
+  
+  <select id="SelectByPhone" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  	 select 
+    <include refid="Base_Column_List" />
+    from t_account_source_test1
+    where phone = #{phone}
+    and suspected_flag = '1'
+  </select>
+  
+  <select id="getCombineAccountSelectByCardId" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from t_account_source_test1
+    where suspected_flag in ('0','2')
+    and card_id = #{cardId}
+  </select>
+  
+  <select id="getCombineAccountSelectByPhone" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from t_account_source_test1
+    where suspected_flag in ('0','2')
+    and phone = #{phone}
+  </select>
+  
+  <select id="getMainGuid" resultType="java.lang.String" parameterType="java.lang.String">
+  	select main_guid
+  	from t_account_source_test1
+  	where guid = #{guid}
+  </select>
+  
+  <select id="getCount" resultType="java.lang.Integer" parameterType="java.lang.String">
+  	select count(*)
+  	from t_account_source_test1
+  	where main_guid = #{m_guid}
+  	and suspected_flag = '0'
+  </select>
+  
+</mapper>

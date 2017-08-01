@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.celnet.dc.dao.MWSysUserMapper">
+ 
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.MWSysUser">
+    <id column="GUID" jdbcType="VARCHAR" property="guid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="fixedphone" jdbcType="VARCHAR" property="fixedphone" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="deleteflg" jdbcType="VARCHAR" property="deleteflg" />
+    <result column="createddate" jdbcType="TIMESTAMP" property="createddate" />
+    <result column="updatedate" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="createduserGUID" jdbcType="VARCHAR" property="createduserguid" />
+    <result column="updateuserGUID" jdbcType="VARCHAR" property="updateuserguid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    "GUID", username, email, phone, fixedphone, realname, unit, gender, deleteflg, createddate, 
+    updatedate, "createduserGUID", "updateuserGUID",password
+  </sql>
+  <select id="selectByGUID" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mw_sys_user
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mw_sys_user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mw_sys_user
+  </select>
+  
+  <delete id="deleteByGUID" parameterType="java.lang.String">
+    delete from mw_sys_user
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+ 
+  <insert id="insert" parameterType="com.celnet.dc.domain.MWSysUser">
+    insert into mw_sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="guid != null">
+        GUID,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="fixedphone != null">
+        fixedphone,
+      </if>
+      <if test="realname != null">
+        realname,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="deleteflg != null">
+        deleteflg,
+      </if>
+      <if test="createddate != null">
+        createddate,
+      </if>
+      <if test="updatedate != null">
+        updatedate,
+      </if>
+      <if test="createduserguid != null">
+        createduserGUID,
+      </if>
+      <if test="updateuserguid != null">
+        updateuserGUID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="guid != null">
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="fixedphone != null">
+        #{fixedphone,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflg != null">
+        #{deleteflg,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null">
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createduserguid != null">
+        #{createduserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateuserguid != null">
+        #{updateuserguid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.MWSysUser">
+    update mw_sys_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="fixedphone != null">
+        fixedphone = #{fixedphone,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null">
+        realname = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflg != null">
+        deleteflg = #{deleteflg,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null">
+        createddate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        updatedate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createduserguid != null">
+        createduserGUID = #{createduserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateuserguid != null">
+        updateuserGUID = #{updateuserguid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

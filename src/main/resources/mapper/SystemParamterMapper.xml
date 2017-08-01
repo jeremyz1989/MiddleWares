@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.celnet.dc.dao.SystemParamterMapper">
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.SystemParamter">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="_hc_lastop" jdbcType="VARCHAR" property="hcLastop" />
+    <result column="systemmodstamp" jdbcType="TIMESTAMP" property="systemmodstamp" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="desc__c" jdbcType="VARCHAR" property="descC" />
+    <result column="sfid" jdbcType="VARCHAR" property="sfid" />
+    <result column="_hc_err" jdbcType="VARCHAR" property="hcErr" />
+    <result column="isdeleted" jdbcType="BIT" property="isdeleted" />
+    <result column="createddate" jdbcType="TIMESTAMP" property="createddate" />
+    <result column="value__c" jdbcType="VARCHAR" property="valueC" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, _hc_lastop, systemmodstamp, name, desc__c, sfid, _hc_err, isdeleted, createddate, 
+    value__c
+  </sql>
+  <select id="selectByGUID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from systemparamter__c
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from systemparamter__c
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from systemparamter__c
+  </select>
+  
+  
+  <delete id="deleteByGUID" parameterType="java.lang.Integer">
+    delete from systemparamter__c
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.celnet.dc.domain.SystemParamter">
+    insert into systemparamter__c
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="hcLastop != null">
+        _hc_lastop,
+      </if>
+      <if test="systemmodstamp != null">
+        systemmodstamp,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="descC != null">
+        desc__c,
+      </if>
+      <if test="sfid != null">
+        sfid,
+      </if>
+      <if test="hcErr != null">
+        _hc_err,
+      </if>
+      <if test="isdeleted != null">
+        isdeleted,
+      </if>
+      <if test="createddate != null">
+        createddate,
+      </if>
+      <if test="valueC != null">
+        value__c,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="hcLastop != null">
+        #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null">
+        #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="descC != null">
+        #{descC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null">
+        #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null">
+        #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="createddate != null">
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="valueC != null">
+        #{valueC,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.SystemParamter">
+    update systemparamter__c
+    <set>
+      <if test="hcLastop != null">
+        _hc_lastop = #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null">
+        systemmodstamp = #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="descC != null">
+        desc__c = #{descC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null">
+        sfid = #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null">
+        _hc_err = #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null">
+        isdeleted = #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="createddate != null">
+        createddate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="valueC != null">
+        value__c = #{valueC,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

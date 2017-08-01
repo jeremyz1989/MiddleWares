@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.MWApiListMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.MWApiList" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="DeleteFlg" property="deleteflg" jdbcType="VARCHAR" />
+    <result column="CreatedDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="CreatedUserGUID" property="createduserguid" jdbcType="VARCHAR" />
+    <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="UpdateUserGUID" property="updateuserguid" jdbcType="VARCHAR" />
+    <result column="ApiCnName" property="apicnname" jdbcType="VARCHAR" />
+    <result column="Handler_ClassName__c" property="handlerClassnameC" jdbcType="VARCHAR" />
+    <result column="ApiEnName" property="apienname" jdbcType="VARCHAR" />
+    <result column="success_Log_days" property="successLogDays" jdbcType="VARCHAR" />
+    <result column="error_Log_days" property="errorLogDays" jdbcType="VARCHAR" />
+    <result column="Call_Type" property="callType" jdbcType="VARCHAR" />
+    <result column="Status" property="status" jdbcType="VARCHAR" />
+    <result column="EndPoint" property="endpoint" jdbcType="VARCHAR" />
+    <result column="Version" property="version" jdbcType="VARCHAR" />
+    <result column="Remark" property="remark" jdbcType="VARCHAR" />
+    <result column="Api_App_Name" property="apiAppName" jdbcType="VARCHAR" />
+    <result column="Authorited_App_Key" property="authoritedAppKey" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+   "GUID", "DeleteFlg", "CreatedDate", "CreatedUserGUID", "UpdateDate", "UpdateUserGUID", "ApiCnName", 
+    "Handler_ClassName__c", "ApiEnName", "success_Log_days", "error_Log_days", "Call_Type", "Status", 
+    "EndPoint", "Version", "Remark", "Api_App_Name", "Authorited_App_Key"
+  </sql>
+  
+   <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_api_list
+  </select>
+  
+  <select id="selectByGUID" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_api_list
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByApiName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_api_list
+    where ApiEnName = #{apienname,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByGUID" parameterType="java.lang.String" >
+    delete from mw_api_list
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+ 
+  <insert id="insert" parameterType="com.celnet.dc.domain.MWApiList" >
+    insert into mw_api_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="deleteflg != null" >
+        DeleteFlg,
+      </if>
+      <if test="createddate != null" >
+        CreatedDate,
+      </if>
+      <if test="createduserguid != null" >
+        CreatedUserGUID,
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate,
+      </if>
+      <if test="updateuserguid != null" >
+        UpdateUserGUID,
+      </if>
+      <if test="apicnname != null" >
+        ApiCnName,
+      </if>
+      <if test="handlerClassnameC != null" >
+        Handler_ClassName__c,
+      </if>
+      <if test="apienname != null" >
+        ApiEnName,
+      </if>
+      <if test="successLogDays != null" >
+        success_Log_days,
+      </if>
+      <if test="errorLogDays != null" >
+        error_Log_days,
+      </if>
+      <if test="callType != null" >
+        Call_Type,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+      <if test="endpoint != null" >
+        EndPoint,
+      </if>
+      <if test="version != null" >
+        Version,
+      </if>
+      <if test="remark != null" >
+        Remark,
+      </if>
+      <if test="apiAppName != null" >
+        Api_App_Name,
+      </if>
+      <if test="authoritedAppKey != null" >
+        Authorited_App_Key,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflg != null" >
+        #{deleteflg,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createduserguid != null" >
+        #{createduserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuserguid != null" >
+        #{updateuserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="apicnname != null" >
+        #{apicnname,jdbcType=VARCHAR},
+      </if>
+      <if test="handlerClassnameC != null" >
+        #{handlerClassnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="apienname != null" >
+        #{apienname,jdbcType=VARCHAR},
+      </if>
+      <if test="successLogDays != null" >
+        #{successLogDays,jdbcType=VARCHAR},
+      </if>
+      <if test="errorLogDays != null" >
+        #{errorLogDays,jdbcType=VARCHAR},
+      </if>
+      <if test="callType != null" >
+        #{callType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="endpoint != null" >
+        #{endpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="apiAppName != null" >
+        #{apiAppName,jdbcType=VARCHAR},
+      </if>
+      <if test="authoritedAppKey != null" >
+        #{authoritedAppKey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.MWApiList" >
+    update mw_api_list
+    <set >
+      <if test="deleteflg != null" >
+        DeleteFlg = #{deleteflg,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        CreatedDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createduserguid != null" >
+        CreatedUserGUID = #{createduserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuserguid != null" >
+        UpdateUserGUID = #{updateuserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="apicnname != null" >
+        ApiCnName = #{apicnname,jdbcType=VARCHAR},
+      </if>
+      <if test="handlerClassnameC != null" >
+        Handler_ClassName__c = #{handlerClassnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="apienname != null" >
+        ApiEnName = #{apienname,jdbcType=VARCHAR},
+      </if>
+      <if test="successLogDays != null" >
+        success_Log_days = #{successLogDays,jdbcType=VARCHAR},
+      </if>
+      <if test="errorLogDays != null" >
+        error_Log_days = #{errorLogDays,jdbcType=VARCHAR},
+      </if>
+      <if test="callType != null" >
+        Call_Type = #{callType,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        Status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="endpoint != null" >
+        EndPoint = #{endpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null" >
+        Version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="apiAppName != null" >
+        Api_App_Name = #{apiAppName,jdbcType=VARCHAR},
+      </if>
+      <if test="authoritedAppKey != null" >
+        Authorited_App_Key = #{authoritedAppKey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+ <select id="getApiList" resultMap="BaseResultMap" parameterType="java.lang.String">
+ 	select 
+    <include refid="Base_Column_List" />
+    from mw_api_list 
+    where "ApiCnName" = #{method,jdbcType=VARCHAR}
+    and "Version" = #{apiVersion,jdbcType=VARCHAR}
+ </select>
+</mapper>

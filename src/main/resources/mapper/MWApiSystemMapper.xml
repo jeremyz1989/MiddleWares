@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.MWApiSystemMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.MWApiSystem" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="Api_System_Name" property="apiSystemName" jdbcType="VARCHAR" />
+    <result column="Authorited_AppKey" property="authoritedAppkey" jdbcType="VARCHAR" />
+    <result column="Secret_Key" property="secretKey" jdbcType="VARCHAR" />
+    <result column="Status" property="status" jdbcType="VARCHAR" />
+    <result column="DeleteFlg" property="deleteflg" jdbcType="VARCHAR" />
+    <result column="CreatedDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="CreatedUserGUID" property="createduserguid" jdbcType="VARCHAR" />
+    <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="UpdateUserGUID" property="updateuserguid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, Api_System_Name, Authorited_AppKey, Secret_Key, Status, DeleteFlg, CreatedDate, 
+    CreatedUserGUID, UpdateDate, UpdateUserGUID
+  </sql>
+  <select id="selectByGUID" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_api_system
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByAppKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_api_system
+    where Authorited_AppKey = #{authorited_appKey,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_api_system
+  </select>
+  <delete id="deleteByGUID" parameterType="java.lang.String" >
+    delete from mw_api_system
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" parameterType="com.celnet.dc.domain.MWApiSystem" >
+    insert into mw_api_system
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="apiSystemName != null" >
+        Api_System_Name,
+      </if>
+      <if test="authoritedAppkey != null" >
+        Authorited_AppKey,
+      </if>
+      <if test="secretKey != null" >
+        Secret_Key,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+      <if test="deleteflg != null" >
+        DeleteFlg,
+      </if>
+      <if test="createddate != null" >
+        CreatedDate,
+      </if>
+      <if test="createduserguid != null" >
+        CreatedUserGUID,
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate,
+      </if>
+      <if test="updateuserguid != null" >
+        UpdateUserGUID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="apiSystemName != null" >
+        #{apiSystemName,jdbcType=VARCHAR},
+      </if>
+      <if test="authoritedAppkey != null" >
+        #{authoritedAppkey,jdbcType=VARCHAR},
+      </if>
+      <if test="secretKey != null" >
+        #{secretKey,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflg != null" >
+        #{deleteflg,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createduserguid != null" >
+        #{createduserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuserguid != null" >
+        #{updateuserguid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.MWApiSystem" >
+    update mw_api_system
+    <set >
+      <if test="apiSystemName != null" >
+        Api_System_Name = #{apiSystemName,jdbcType=VARCHAR},
+      </if>
+      <if test="authoritedAppkey != null" >
+        Authorited_AppKey = #{authoritedAppkey,jdbcType=VARCHAR},
+      </if>
+      <if test="secretKey != null" >
+        Secret_Key = #{secretKey,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        Status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflg != null" >
+        DeleteFlg = #{deleteflg,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        CreatedDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createduserguid != null" >
+        CreatedUserGUID = #{createduserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuserguid != null" >
+        UpdateUserGUID = #{updateuserguid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  
+</mapper>

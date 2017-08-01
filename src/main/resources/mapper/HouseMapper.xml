@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.HouseMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.House" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="createddate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="_hc_err" property="hcErr" jdbcType="VARCHAR" />
+    <result column="ownerid" property="ownerid" jdbcType="VARCHAR" />
+    <result column="posnrty__c" property="posnrtyC" jdbcType="VARCHAR" />
+    <result column="rmnum__c" property="rmnumC" jdbcType="VARCHAR" />
+    <result column="proid__c" property="proidC" jdbcType="VARCHAR" />
+    <result column="_hc_lastop" property="hcLastop" jdbcType="VARCHAR" />
+    <result column="lastmodifieddate" property="lastmodifieddate" jdbcType="TIMESTAMP" />
+    <result column="createdbyid" property="createdbyid" jdbcType="VARCHAR" />
+    <result column="keyarray__c" property="keyarrayC" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="spart__c" property="spartC" jdbcType="VARCHAR" />
+    <result column="systemmodstamp" property="systemmodstamp" jdbcType="TIMESTAMP" />
+    <result column="podat__c" property="podatC" jdbcType="DATE" />
+    <result column="pr_bukrs__c" property="prBukrsC" jdbcType="VARCHAR" />
+    <result column="lastmodifiedbyid" property="lastmodifiedbyid" jdbcType="VARCHAR" />
+    <result column="vtweg__c" property="vtwegC" jdbcType="VARCHAR" />
+    <result column="vkorg__c" property="vkorgC" jdbcType="VARCHAR" />
+    <result column="dflag__c" property="dflagC" jdbcType="VARCHAR" />
+    <result column="impkeyarray__c" property="impkeyarrayC" jdbcType="VARCHAR" />
+    <result column="rbdim__c" property="rbdimC" jdbcType="DOUBLE" />
+    <result column="keyid__c" property="keyidC" jdbcType="VARCHAR" />
+    <result column="isdeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="fluni__c" property="fluniC" jdbcType="VARCHAR" />
+    <result column="posnr__c" property="posnrC" jdbcType="VARCHAR" />
+    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createddate, _hc_err, ownerid, posnrty__c, rmnum__c, proid__c, _hc_lastop, lastmodifieddate, 
+    createdbyid, keyarray__c, name, spart__c, systemmodstamp, podat__c, pr_bukrs__c, 
+    lastmodifiedbyid, vtweg__c, vkorg__c, dflag__c, impkeyarray__c, rbdim__c, keyid__c, 
+    isdeleted, fluni__c, posnr__c, sfid
+  </sql>
+  <select id="selectByGUID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from house__c
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByGUID" parameterType="java.lang.Integer" >
+    delete from house__c
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.celnet.dc.domain.House" >
+    insert into house__c
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createddate != null" >
+        createddate,
+      </if>
+      <if test="hcErr != null" >
+        _hc_err,
+      </if>
+      <if test="ownerid != null" >
+        ownerid,
+      </if>
+      <if test="posnrtyC != null" >
+        posnrty__c,
+      </if>
+      <if test="rmnumC != null" >
+        rmnum__c,
+      </if>
+      <if test="proidC != null" >
+        proid__c,
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop,
+      </if>
+      <if test="lastmodifieddate != null" >
+        lastmodifieddate,
+      </if>
+      <if test="createdbyid != null" >
+        createdbyid,
+      </if>
+      <if test="keyarrayC != null" >
+        keyarray__c,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="spartC != null" >
+        spart__c,
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp,
+      </if>
+      <if test="podatC != null" >
+        podat__c,
+      </if>
+      <if test="prBukrsC != null" >
+        pr_bukrs__c,
+      </if>
+      <if test="lastmodifiedbyid != null" >
+        lastmodifiedbyid,
+      </if>
+      <if test="vtwegC != null" >
+        vtweg__c,
+      </if>
+      <if test="vkorgC != null" >
+        vkorg__c,
+      </if>
+      <if test="dflagC != null" >
+        dflag__c,
+      </if>
+      <if test="impkeyarrayC != null" >
+        impkeyarray__c,
+      </if>
+      <if test="rbdimC != null" >
+        rbdim__c,
+      </if>
+      <if test="keyidC != null" >
+        keyid__c,
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted,
+      </if>
+      <if test="fluniC != null" >
+        fluni__c,
+      </if>
+      <if test="posnrC != null" >
+        posnr__c,
+      </if>
+      <if test="sfid != null" >
+        sfid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hcErr != null" >
+        #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerid != null" >
+        #{ownerid,jdbcType=VARCHAR},
+      </if>
+      <if test="posnrtyC != null" >
+        #{posnrtyC,jdbcType=VARCHAR},
+      </if>
+      <if test="rmnumC != null" >
+        #{rmnumC,jdbcType=VARCHAR},
+      </if>
+      <if test="proidC != null" >
+        #{proidC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifieddate != null" >
+        #{lastmodifieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null" >
+        #{createdbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="keyarrayC != null" >
+        #{keyarrayC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="spartC != null" >
+        #{spartC,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null" >
+        #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="podatC != null" >
+        #{podatC,jdbcType=DATE},
+      </if>
+      <if test="prBukrsC != null" >
+        #{prBukrsC,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiedbyid != null" >
+        #{lastmodifiedbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="vtwegC != null" >
+        #{vtwegC,jdbcType=VARCHAR},
+      </if>
+      <if test="vkorgC != null" >
+        #{vkorgC,jdbcType=VARCHAR},
+      </if>
+      <if test="dflagC != null" >
+        #{dflagC,jdbcType=VARCHAR},
+      </if>
+      <if test="impkeyarrayC != null" >
+        #{impkeyarrayC,jdbcType=VARCHAR},
+      </if>
+      <if test="rbdimC != null" >
+        #{rbdimC,jdbcType=DOUBLE},
+      </if>
+      <if test="keyidC != null" >
+        #{keyidC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="fluniC != null" >
+        #{fluniC,jdbcType=VARCHAR},
+      </if>
+      <if test="posnrC != null" >
+        #{posnrC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null" >
+        #{sfid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.House" >
+    update house__c
+    <set >
+      <if test="createddate != null" >
+        createddate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hcErr != null" >
+        _hc_err = #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerid != null" >
+        ownerid = #{ownerid,jdbcType=VARCHAR},
+      </if>
+      <if test="posnrtyC != null" >
+        posnrty__c = #{posnrtyC,jdbcType=VARCHAR},
+      </if>
+      <if test="rmnumC != null" >
+        rmnum__c = #{rmnumC,jdbcType=VARCHAR},
+      </if>
+      <if test="proidC != null" >
+        proid__c = #{proidC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop = #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifieddate != null" >
+        lastmodifieddate = #{lastmodifieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null" >
+        createdbyid = #{createdbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="keyarrayC != null" >
+        keyarray__c = #{keyarrayC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="spartC != null" >
+        spart__c = #{spartC,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp = #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="podatC != null" >
+        podat__c = #{podatC,jdbcType=DATE},
+      </if>
+      <if test="prBukrsC != null" >
+        pr_bukrs__c = #{prBukrsC,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiedbyid != null" >
+        lastmodifiedbyid = #{lastmodifiedbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="vtwegC != null" >
+        vtweg__c = #{vtwegC,jdbcType=VARCHAR},
+      </if>
+      <if test="vkorgC != null" >
+        vkorg__c = #{vkorgC,jdbcType=VARCHAR},
+      </if>
+      <if test="dflagC != null" >
+        dflag__c = #{dflagC,jdbcType=VARCHAR},
+      </if>
+      <if test="impkeyarrayC != null" >
+        impkeyarray__c = #{impkeyarrayC,jdbcType=VARCHAR},
+      </if>
+      <if test="rbdimC != null" >
+        rbdim__c = #{rbdimC,jdbcType=DOUBLE},
+      </if>
+      <if test="keyidC != null" >
+        keyid__c = #{keyidC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted = #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="fluniC != null" >
+        fluni__c = #{fluniC,jdbcType=VARCHAR},
+      </if>
+      <if test="posnrC != null" >
+        posnr__c = #{posnrC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null" >
+        sfid = #{sfid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

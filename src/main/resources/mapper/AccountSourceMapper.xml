@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.AccountSourceMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.AccountSource" > 
+    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
+    <result column="pendingapprovalsmb__c" property="pendingapprovalsmb" jdbcType="DOUBLE" />
+    <result column="totalsmb__c" property="totalsmb" jdbcType="DOUBLE" />
+    <result column="availablesmb__c" property="availablesmb" jdbcType="DOUBLE" />
+    <result column="exchangedsmb__c" property="exchangedsmb" jdbcType="DOUBLE" />
+    <result column="gender__c" property="genderC" jdbcType="VARCHAR" />
+    <result column="_hc_lastop" property="hcLastop" jdbcType="VARCHAR" />
+    <result column="isdeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="namefield__c" property="namefieldC" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="permanentaddress__c" property="permanentaddressC" jdbcType="VARCHAR" />
+    <result column="contactaddress__c" property="contactaddressC" jdbcType="VARCHAR" />
+    <result column="clubregisteredphone__c" property="clubregisteredphoneC" jdbcType="VARCHAR" />
+    <result column="contractstatus__c" property="contractstatusC" jdbcType="VARCHAR" />
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="masterrecordid" property="masterrecordid" jdbcType="VARCHAR" />
+    <result column="createddate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="nameandbahns__c" property="nameandbahnsC" jdbcType="VARCHAR" />
+    <result column="bahns__c" property="bahnsC" jdbcType="VARCHAR" />
+    <result column="_hc_err" property="hcErr" jdbcType="VARCHAR" />
+    <result column="shimaoyezhu__c" property="shimaoyezhuC" jdbcType="BIT" />
+    <result column="systemmodstamp" property="systemmodstamp" jdbcType="TIMESTAMP" />
+    <result column="email__c" property="emailC" jdbcType="VARCHAR" />
+    <result column="datebirth__c" property="datebirthC" jdbcType="VARCHAR" />
+    <result column="commonlyphone__c" property="commonlyphoneC" jdbcType="VARCHAR" />
+    <result column="isdelete__c" property="isdeleteC" jdbcType="BIT" />
+    <result column="guid" property="guid" jdbcType="VARCHAR" />
+    <result column="grantingsmbcontractcount__c" property="grantingsmbcontractcountC" jdbcType="DOUBLE" />
+    <result column="accountsource" property="accountsource" jdbcType="VARCHAR" />
+ 
+  </resultMap>
+  <sql id="Base_Column_List" > 
+    sfid, pendingapprovalsmb__c,totalsmb__c,availablesmb__c,exchangedsmb__c,gender__c,_hc_lastop,isdeleted,namefield__c,
+    name,permanentaddress__c,contactaddress__c,clubregisteredphone__c,contractstatus__c,id,masterrecordid,createddate,
+    nameandbahns__c,bahns__c,_hc_err,shimaoyezhu__c,systemmodstamp,email__c,datebirth__c,commonlyphone__c,isdelete__c,
+    guid,grantingsmbcontractcount__c,accountsource
+  </sql>
+  <select id="getAccount" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from account_source
+    where sfid = #{id}
+  </select>
+  
+  <select id="getAccountNew" resultMap="BaseResultMap" >
+  	select sfid,name,clubregisteredphone__c,bahns__c
+  	from account_source
+  	where sfid in 
+  	(select customer__c from customerhousebinding__c where systemmodstamp > (select value__c from systemparamter__c where name = 'account_update')::TIMESTAMP)
+  	<!-- select * from customerhousebinding__c where systemmodstamp > (select value__c from systemparamter__c where name = 'account_update')::TIMESTAMP -->
+  </select>
+  
+</mapper>

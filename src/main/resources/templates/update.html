@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改页面</title>
+</head>
+<body>
+<form action="/updateUser">
+    <table>
+        <tr>
+            <td><input type="hidden" name="id" value=${user.id}></td>
+            <td><input type="text" name="userName" value=${user.userName}></td>
+            <td><input type="text" name="password" value=${user.password}></td>
+            <td><input type="text" name="sex" value=${user.sex}></td>
+            <td><input type="text" name="age" value=${user.age}></td>
+            <td><input type="text" name="address" value=${user.address}></td>
+        </tr>
+        <tr>
+            <input type="submit" value="提交"><br/>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.MWApiLogMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.MWApiLog" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="ApiEnName" property="apienname" jdbcType="VARCHAR" />
+    <result column="EndPoint" property="endpoint" jdbcType="VARCHAR" />
+    <result column="Call_Type" property="callType" jdbcType="VARCHAR" />
+    <result column="Start_Time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="End_Time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="Duration" property="duration" jdbcType="VARCHAR" />
+    <result column="Stack_Trace" property="stackTrace" jdbcType="VARCHAR" />
+    <result column="Last_Retry_Time" property="lastRetryTime" jdbcType="TIMESTAMP" />
+    <result column="Request_Text" property="requestText" jdbcType="VARCHAR" />
+    <result column="Response_Text" property="responseText" jdbcType="VARCHAR" />
+    <result column="Exception_Msg" property="exceptionMsg" jdbcType="VARCHAR" />
+    <result column="Status" property="status" jdbcType="VARCHAR" />
+    <result column="DeleteFlg" property="deleteflg" jdbcType="VARCHAR" />
+    <result column="CreatedDate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="CreatedUserGUID" property="createduserguid" jdbcType="VARCHAR" />
+    <result column="UpdateDate" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="UpdateUserGUID" property="updateuserguid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, ApiEnName, EndPoint, Call_Type, Start_Time, End_Time, Duration, Stack_Trace, 
+    Last_Retry_Time, Request_Text, Response_Text, Exception_Msg, Status, DeleteFlg, CreatedDate, 
+    CreatedUserGUID, UpdateDate, UpdateUserGUID
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_api_log
+  </select>
+  <select id="selectByGUID" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from mw_api_log
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByGUID" parameterType="java.lang.String" >
+    delete from mw_api_log
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  
+  <insert id="insert" parameterType="com.celnet.dc.domain.MWApiLog" >
+    insert into mw_api_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="apienname != null" >
+        ApiEnName,
+      </if>
+      <if test="endpoint != null" >
+        EndPoint,
+      </if>
+      <if test="callType != null" >
+        Call_Type,
+      </if>
+      <if test="startTime != null" >
+        Start_Time,
+      </if>
+      <if test="endTime != null" >
+        End_Time,
+      </if>
+      <if test="duration != null" >
+        Duration,
+      </if>
+      <if test="stackTrace != null" >
+        Stack_Trace,
+      </if>
+      <if test="lastRetryTime != null" >
+        Last_Retry_Time,
+      </if>
+      <if test="requestText != null" >
+        Request_Text,
+      </if>
+      <if test="responseText != null" >
+        Response_Text,
+      </if>
+      <if test="exceptionMsg != null" >
+        Exception_Msg,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+      <if test="deleteflg != null" >
+        DeleteFlg,
+      </if>
+      <if test="createddate != null" >
+        CreatedDate,
+      </if>
+      <if test="createduserguid != null" >
+        CreatedUserGUID,
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate,
+      </if>
+      <if test="updateuserguid != null" >
+        UpdateUserGUID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="apienname != null" >
+        #{apienname,jdbcType=VARCHAR},
+      </if>
+      <if test="endpoint != null" >
+        #{endpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="callType != null" >
+        #{callType,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="duration != null" >
+        #{duration,jdbcType=VARCHAR},
+      </if>
+      <if test="stackTrace != null" >
+        #{stackTrace,jdbcType=VARCHAR},
+      </if>
+      <if test="lastRetryTime != null" >
+        #{lastRetryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="requestText != null" >
+        #{requestText,jdbcType=VARCHAR},
+      </if>
+      <if test="responseText != null" >
+        #{responseText,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionMsg != null" >
+        #{exceptionMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflg != null" >
+        #{deleteflg,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createduserguid != null" >
+        #{createduserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuserguid != null" >
+        #{updateuserguid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.MWApiLog" >
+    update mw_api_log
+    <set >
+      <if test="apienname != null" >
+        ApiEnName = #{apienname,jdbcType=VARCHAR},
+      </if>
+      <if test="endpoint != null" >
+        EndPoint = #{endpoint,jdbcType=VARCHAR},
+      </if>
+      <if test="callType != null" >
+        Call_Type = #{callType,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        Start_Time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        End_Time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="duration != null" >
+        Duration = #{duration,jdbcType=VARCHAR},
+      </if>
+      <if test="stackTrace != null" >
+        Stack_Trace = #{stackTrace,jdbcType=VARCHAR},
+      </if>
+      <if test="lastRetryTime != null" >
+        Last_Retry_Time = #{lastRetryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="requestText != null" >
+        Request_Text = #{requestText,jdbcType=VARCHAR},
+      </if>
+      <if test="responseText != null" >
+        Response_Text = #{responseText,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptionMsg != null" >
+        Exception_Msg = #{exceptionMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        Status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflg != null" >
+        DeleteFlg = #{deleteflg,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        CreatedDate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createduserguid != null" >
+        CreatedUserGUID = #{createduserguid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null" >
+        UpdateDate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateuserguid != null" >
+        UpdateUserGUID = #{updateuserguid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  
+</mapper>

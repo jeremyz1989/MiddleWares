@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人相关资料</title>
+</head>
+<body>
+<table border="1px solid #8968CD" style="border-collapse: collapse;">
+    <tr><th>用户名</th> <th>密码</th> <th>性别</th> <th>年龄</th> <th>地址</th> </tr>
+    <#list users as list>
+        <tr>
+            <td><input type="text" value=${list.userName} name="userName"></td>
+            <td><input type="text" value=${list.password} name="password"></td>
+            <td><input type="text" value=${list.sex} name="sex"></td>
+            <td><input type="text" value=${list.age} name="age"></td>
+            <td><input type="text" value=${list.address} name="address"></td>
+        </tr>
+    </#list>
+</table>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>分页页面</title>
+    <script src="/common/jquery-1.6.js"></script>
+    <script src="/common/angular.js"></script>
+    <script src="/common/ui-bootstrap-tpls-1.3.2.js"></script>
+    <script src="/common/jquery.pagination.js"></script>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script type="text/javascript">
+
+        var app = angular.module('myApp', []);
+        app.controller('QuestionCtrl', function($scope, $http){
+            $scope.currentPage = 1;//当前页
+            $scope.numPerPage = 2;
+            $scope.maxSize = 5;
+            $http({
+                url : '/page/getExamsByPage',
+                method : 'post',
+                params : {
+                    'currentPage' : $scope.currentPage - 1,
+                    'numPerPage' : $scope.numPerPage
+                }
+            }).then(function (result) {//正确请求成功时处理
+
+                console.log(result);
+                $scope.items=result.data.list;
+                $("#Pagination").pagination(result.data.total, {
+                    callback : $scope.pageselectCallback,
+                    prev_text : '《上一页',
+                    next_text: '下一页》',
+                    items_per_page : 2,
+                    num_display_entries : 8,
+                    current_page : 0,
+                    num_edge_entries : 1
+                });
+            }).catch(function (result) { //捕捉错误处理
+                alert(result);                //错误内容
+
+            });
+
+            $scope.pageselectCallback=function(page_id, jq) {
+
+                $http.post('/page/getExamsByPage?pageId='+page_id,{
+
+                }).then(function (result) {//正确请求成功时处理
+
+                    $scope.items=result.data.list;
+                    console.log(result);
+
+                    //正确内容
+
+                }).catch(function (result) { //捕捉错误处理
+                    alert(result);                //错误内容
+
+                });
+
+            }
+        });
+    </script>
+</head>
+<body>
+<div ng-app="myApp" data-ng-controller="QuestionCtrl" class="container" style="width: 1900px;">
+    <br>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th class="text-center"><input type="checkbox"
+                                           data-ng-model="allChecked" data-ng-change="checkAll(allChecked)" /></th>
+            <th class="text-center">序号</th>
+            <th class="text-center">姓名</th>
+            <th class="text-center">密码</th>
+            <th class="text-center">性别</th>
+            <th class="text-center">年龄</th>
+            <th class="text-center">地址</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="item in items">
+            <td class="text-center"><input type="checkbox"
+                                           data-ng-model="item.$checked" data-ng-changed="checkedChange(item.id,item.$checked)"/></td>
+            <td class="text-center"><span data-ng-bind="$index+1"></span></td>
+            <td class="text-center" data-ng-bind="item.userName"></td>
+            <td class="text-center" data-ng-bind="item.password"></td>
+            <td class="text-center" data-ng-bind="item.sex"></td>
+            <td class="text-center" data-ng-bind="item.age"></td>
+            <td class="text-center" data-ng-bind="item.address"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div id="Pagination" class="pagination"></div>
+</div>
+</body>
+</html>

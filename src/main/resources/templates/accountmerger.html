@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录成功界面</title>
+    
+    <link th:href="@{../../bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+	<link th:href="@{../../bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet" />
+	<link rel="stylesheet" th:href="@{../../bootstrap/css/unicorn.main.css}" />
+	<link rel="stylesheet" th:href="@{../../bootstrap/css/unicorn.grey.css}" />
+<!-- 	<link rel="stylesheet" th:href="@{../../bootstrap/css/select2.css}" />
+	<link rel="stylesheet" th:href="@{../../bootstrap/css/uniform.css}" />
+	<link rel="stylesheet" th:href="@{../../bootstrap/css/matrix-style.css}" />
+	<link rel="stylesheet" th:href="@{../../bootstrap/css/matrix-media.css}" /> -->
+	
+	<script th:src="@{../../bootstrap/js/jquery.min.js}"></script>
+
+    <script th:src="@{../../bootstrap/js/jquery.peity.min.js}"></script>
+    <script th:src="@{../../bootstrap/js/jquery-ui.custom.js}"></script>
+	<script th:src="@{../../bootstrap/js/excanvas.min.js}"></script>
+    <script th:src="@{../../bootstrap/js/browser.js}" type="text/javascript"></script>
+    <script th:src="@{../../bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{../../bootstrap/js/fullcalendar.min.js}"></script>
+<!--     <script th:src="@{../../bootstrap/js/select2.min.js}"></script>
+    <script th:src="@{../../bootstrap/js/matrix.js}"></script>
+    <script th:src="@{../../bootstrap/js/matrix.tables.js}"></script>
+    <script th:src="@{../../bootstrap/js/jquery.uniform.js}"></script>
+    <script th:src="@{../../bootstrap/js/jquery.dataTables.min.js}"></script> --> 
+
+<script>
+$(function () {
+	
+	$("#000").bind("click" ,function () {
+		if($(this).is(':checked')){
+			$(".007").prop("checked",true);
+		}else{
+			$(".007").prop("checked",false);
+		}
+		$(":checkbox:checked").each(function(){
+			  var str = $.trim($(this).parents("tr").find("td:last").text());	 
+			  $(".003").each(function(){
+					  if($.trim($(this).find("td:last").text()) == str){
+						  $(this).css("display","");
+					  }
+				})
+			 
+			  $(".005").each(function(){
+				  if($.trim($(this).find("td:last").text()) == str){
+					  $(this).css("display","");
+				  }
+			  })
+			  $(".006").each(function(index){
+				  if($.trim($(this).find("td:last").text()) == str){
+					  $(".007").eq(index).prop("checked",true);
+				  }
+			  })
+			})
+	})
+	
+/* 	  $(".001").bind("click" ,function () {
+		  $(".003").css("display","none");
+		  $(".005").css("display","none");
+		  if($(this).is(':checked')){
+			$(":checkbox:checked").each(function(){
+			  var str = $.trim($(this).parents("tr").find("td:last").text());	 
+			  $(".003").each(function(){
+					  if($.trim($(this).find("td:last").text()) == str){
+						  $(this).css("display","");
+					  }
+				})
+			 
+			  $(".005").each(function(){
+				  if($.trim($(this).find("td:last").text()) == str){
+					  $(this).css("display","");
+				  }
+			  })
+			  $(".006").each(function(index){
+				  if($.trim($(this).find("td:last").text()) == str){
+					  $(".007").eq(index).prop("checked",true);
+				  }
+			  })
+			})
+		 }else{
+			 $(this).prop("checked",false);
+			 $(":checkbox:checked").each(function(){
+				 var str = $.trim($(this).parents("tr").find("td:last").text());
+				  $(".003").each(function(){
+						  if($.trim($(this).find("td:last").text()) == str){
+							  $(this).css("display","");
+						  }
+					})
+				 
+				  $(".005").each(function(){
+					  if($.trim($(this).find("td:last").text()) == str){
+						  $(this).css("display","");
+					  }
+				  })
+			 })
+		 }
+	  }) */
+	  
+	 $(".004").bind("click",function(){
+		 arr = new Array();
+		 $(":checkbox:checked").each(function(){
+			arr.push($(this).parents("tr").children().eq(1).text());
+		 })
+		  window.open("http://localhost:8888/page/turns/merger?guid=" + arr,"_self");
+	  }); 
+	
+	$(".009").bind("click",function(){
+		$(":radio:checked").each(function(){
+			var str = $.trim($(this).parents("tr").children().eq(1).text());
+			window.open("http://localhost:8888/page/turns/split?t_guid=" + str,"_self");
+		})
+	})
+	
+/* 	$(".007").bind("click",function(){
+		$(".007").each(function(){
+			if($(this).is(':checked')){
+				$(".009").css("display","none");
+				$(".004").css("display","");
+				return;
+			}
+		})
+	})
+	$(".008").bind("click",function(){
+		$(".008").each(function(){
+			if($(this).is(':checked')){
+				$(".004").css("display","none");
+				$(".009").css("display","")
+				return;
+			}
+		})
+	}) */
+	  
+	});
+</script>
+
+</head>
+<body style="text_align:center;">
+	<div id="header">
+			<h1><a href="./dashboard.html">客户数据合并</a></h1>		
+		</div>
+		<div id="search">
+			<input type="text" placeholder="Search here..."/><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
+		</div>
+		
+		<div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li class="btn btn-inverse" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">欢迎你，登录成功！</span></a></li>            
+            </ul>
+        </div>
+        
+        
+        <div id="sidebar">
+			<ul>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>用户管理</span> <span class="label">2</span></a>
+					<ul>
+						<li><a href="../../page/turns/welcome">用户管理</a></li>
+						<li><a href="#">权限管理</a></li>
+					</ul>
+				</li>
+				
+				<li class="submenu">
+					<a href="#"><i class="icon icon-tint"></i> <span>客户数据管理</span><span class="label">1</span></a>
+					<ul>
+						<li><a href="../../page/turns/accountmerge">客户合并</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>基础数据管理</span> <span class="label">2</span></a>
+					<ul>
+						<li><a href="#">房产楼栋</a></li>
+						<li><a href="#">合同数据</a></li>
+						<li><a href="#">世茂币</a></li>
+						<li><a href="#">参数设置</a></li>
+					</ul>
+				</li>
+				
+			</ul>
+		
+		</div>
+		
+		<!-- <div id="style-switcher">
+			<i class="icon-arrow-left icon-white"></i>
+			<span>Style:</span>
+			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+            <a href="#light-blue" style="background-color: #8399b0;"></a>
+			<a href="#blue" style="background-color: #2D2F57;"></a>
+			<a href="#red" style="background-color: #673232;"></a>
+            <a href="#red-green" style="background-image: url('img/demo/red-green.png');background-repeat: no-repeat;"></a>
+		</div> -->
+		
+		
+	<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"><a href="#" class="current">客户合并</a> </div>
+    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color:#C2D7F0;"></span>冲突类型：证件号码相同，手机号码相同</h5>
+    
+  </div>
+  <div class="container-fluid">
+    <hr/>
+    <form  role="form" th:action="select">
+    <div class="input-group col-md-3" style="margin-top:0px positon:relative">  
+       <input type="text" class="form-control" name="cardId" placeholder="请输入证件号码" th:value="${cardId}" /> 
+            <span class="input-group-btn">  
+            </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <input type="text" class="form-control" name="phone" placeholder="请输入手机号码" th:value="${phone}" /> 
+            <span style="color:red;" th:text="${pgmsg}?${pgmsg}:''"></span>
+            <span style="color:red;" th:text="${msg}?${msg}:''"></span>
+            <span class="input-group-btn">  
+            <input type="submit" class="btn btn-info btn-search" style="float:right;width:100px;height:36px;" value="查找" />   
+            </span> 
+ </div>
+ </form >
+
+    
+    <div class="row-fluid">
+      <div class="span12">
+	
+			 <div class="widget-box">
+            <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>来源客户</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                <th><input type="checkbox" id = "000"/></th>
+		                  <th>用户姓名</th>
+		                  <th>证件号码</th>
+		                  <th>手机号码</th>
+		                  <th>备用证件号码</th>
+		                  <th>备用电话号码</th>
+		                  <th>注册手机号</th>
+		                  <th>主手机号</th>
+		                  <th>备用注册手机号</th>
+		                  <th>备用手机号</th>
+		                  <th>客户来源</th>
+		                  <th style="display:none;">...</th>
+		                </tr>
+              </thead>
+              <tbody>
+               	<tr class="odd gradeX 006"  th:each="sourceAccount : ${sourceAccount}">
+               			<td><input type="checkbox" class="001 007"/></td>
+               			  <td th:text="${sourceAccount.guid}" class="center" style="display:none;"></td>
+		                  <td th:text="${sourceAccount.name}" class="center 002"></td>
+		                  <td th:text="${sourceAccount.cardId}" class="center"></td>
+		                  <td th:text="${sourceAccount.phone}" class="center"></td>
+		                  <td th:text="${sourceAccount.spareCardId}" class="center"></td>
+		                  <td th:text="${sourceAccount.phone}" class="center"></td>
+		                  <td th:text="${sourceAccount.registerPhone}" class="center"></td>
+		                  <td th:text="${sourceAccount.contractPhone}" class="center"></td>
+		                  <td th:text="${sourceAccount.phone}" class="center"></td>
+		                  <td th:text="${sourceAccount.spareRegisterPhone}" class="center"></td>
+		                  <td th:text="${sourceAccount.accountsource}" class="center"></td>
+		                  <td th:text="${sourceAccount.mainGuid}" style="display:none;"></td>
+		                </tr>
+		               
+              </tbody>
+            </table>
+          </div>
+        </div>
+   
+		   <div class="widget-box" >
+		          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+		            <h5>主档客户</h5>
+		          </div>
+		          <div class="widget-content nopadding">
+		            <table class="table table-bordered table-striped">
+		              <thead>
+		                <tr>
+		                  <th>用户姓名</th>
+		                  <th>证件号码</th>
+		                  <th>电话号码</th>
+		                  <th>备用证件号码</th>
+		                  <th>备用电话号码</th>
+		                  <th>注册手机号</th>
+		                  <th>主手机号</th>
+		                  <th>备用注册手机号</th>
+		                  <th>备用手机号</th>
+		                  <th>客户来源</th>
+		                  <th style="display:none;">...</th>
+		                </tr>
+		              </thead>
+		              <tbody >
+		                <tr class="odd gradeX 003" th:each="account : ${account} ">
+		                  <td th:text="${account.name}"></td>
+		                  <td th:text="${account.bahnsC}"></td>
+		                  <td th:text="${account.phone}"></td>
+		                  <td ></td>
+		                  <td th:text="${account.phone}"></td>
+		                  <td th:text="${account.phone}"></td>
+		                  <td th:text="${account.phone}"></td>
+		                  <td th:text="${account.phone}"></td>
+		                  <td th:text="${account.spareClubregisteredphoneC}"></td>
+		                  <td ></td>
+		                  <td th:text="${account.guid}" style="display:none;"></td>
+		                </tr>  
+		              </tbody>
+		            </table>
+		          </div>
+		        </div>
+		        
+		         <div class="widget-box">
+		          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+		            <h5>合并客户</h5>
+		          </div>
+		          <div class="widget-content nopadding">
+		            <table class="table table-bordered table-striped">
+		              <thead>
+		                <tr>
+		                <th></th>
+		                  <th>用户姓名</th>
+		                  <th>证件号码</th>
+		                  <th>电话号码</th>
+		                  <th>备用证件号码</th>
+		                  <th>备用电话号码</th>
+		                  <th>注册手机号</th>
+		                  <th>主手机号</th>
+		                  <th>备用注册手机号</th>
+		                  <th>备用手机号</th>
+		                  <th>客户来源</th>
+		                  <th style="display:none;">...</th>
+		                </tr>
+		              </thead>
+		              <tbody>
+		                <tr class="od2d gradeX 005"  th:each="combineAccount : ${combineAccount}" >
+		                <td><input type="radio" name="account" class="008" /></td>
+		                  <td th:text="${combineAccount.guid}" class="center" style="display:none;"></td>	
+		                  <td th:text="${combineAccount.name}" class="center "></td>
+		                   <td th:text="${combineAccount.cardId}" class="center"></td>
+		                  <td th:text="${combineAccount.phone}" class="center"></td>
+		                  <td  class="center"></td>
+		                  <td th:text="${combineAccount.phone}" class="center"></td>
+		                  <td th:text="${combineAccount.phone}" class="center"></td>
+		                  <td th:text="${combineAccount.registerPhone}" class="center"></td>
+		                  <td th:text="${combineAccount.contractPhone}" class="center"></td>
+		                  <td th:text="${combineAccount.spareRegisterPhone}" class="center"></td>
+		                  <td th:text="${combineAccount.spareContractPhone}" class="center"></td>
+		                  <td th:text="${combineAccount.accountsource}" class="center"></td>
+		                  <td th:text="${combineAccount.mainGuid}" style="display:none;"></td>
+		                </tr>
+		              </tbody>
+		            </table>
+		          </div>
+		        </div>
+			<span class="input-group-btn">  
+               <button class="btn btn-info btn-search 004" style="float:right;width:100px;height:36px;a:hover{cursor:not-allowed;}">确定合并</button>
+               <button class="btn btn-info btn-search" style="float:right;width:50px;height:36px;visibility: hidden;"></button>
+               <button class="btn btn-info btn-search 009" style="float:right;width:100px;height:36px;display=none;">确定拆分</button>   
+            </span>
+		 </div>
+    </div>
+  </div>
+</div>
+<!-- <input type="text" id="keyword" />
+<button onclick="javascript:window.location.href='search.asp?keyword='+ document.getElementById('keyword').value" >搜索</button> -->
+
+
+    
+</body>
+</html>

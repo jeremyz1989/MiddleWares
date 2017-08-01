@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.ProductOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.ProductOrder" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ordernum__c" property="ordernumC" jdbcType="VARCHAR" />
+    <result column="receivedtime__c" property="receivedtimeC" jdbcType="TIMESTAMP" />
+    <result column="createddate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="category__c" property="categoryC" jdbcType="VARCHAR" />
+    <result column="buyname__c" property="buynameC" jdbcType="VARCHAR" />
+    <result column="buyphone__c" property="buyphoneC" jdbcType="VARCHAR" />
+    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
+    <result column="_hc_err" property="hcErr" jdbcType="VARCHAR" />
+    <result column="ordercomfirmtime__c" property="ordercomfirmtimeC" jdbcType="TIMESTAMP" />
+    <result column="arrivetime__c" property="arrivetimeC" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="_hc_lastop" property="hcLastop" jdbcType="VARCHAR" />
+    <result column="systemmodstamp" property="systemmodstamp" jdbcType="TIMESTAMP" />
+    <result column="lastmodifieddate" property="lastmodifieddate" jdbcType="TIMESTAMP" />
+    <result column="reimbursenum__c" property="reimbursenumC" jdbcType="VARCHAR" />
+    <result column="createtime__c" property="createtimeC" jdbcType="TIMESTAMP" />
+    <result column="productname__c" property="productnameC" jdbcType="VARCHAR" />
+    <result column="isdeleted" property="isdeleted" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, ordernum__c, receivedtime__c, createddate, category__c, buyname__c, buyphone__c, 
+    sfid, _hc_err, ordercomfirmtime__c, arrivetime__c, name, _hc_lastop, systemmodstamp, 
+    lastmodifieddate, reimbursenum__c, createtime__c, productname__c, isdeleted
+  </sql>
+  <select id="selectByGUID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from productorder__c
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByGUID" parameterType="java.lang.Integer" >
+    delete from productorder__c
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.celnet.dc.domain.ProductOrder" >
+    insert into productorder__c
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ordernumC != null" >
+        ordernum__c,
+      </if>
+      <if test="receivedtimeC != null" >
+        receivedtime__c,
+      </if>
+      <if test="createddate != null" >
+        createddate,
+      </if>
+      <if test="categoryC != null" >
+        category__c,
+      </if>
+      <if test="buynameC != null" >
+        buyname__c,
+      </if>
+      <if test="buyphoneC != null" >
+        buyphone__c,
+      </if>
+      <if test="sfid != null" >
+        sfid,
+      </if>
+      <if test="hcErr != null" >
+        _hc_err,
+      </if>
+      <if test="ordercomfirmtimeC != null" >
+        ordercomfirmtime__c,
+      </if>
+      <if test="arrivetimeC != null" >
+        arrivetime__c,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop,
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp,
+      </if>
+      <if test="lastmodifieddate != null" >
+        lastmodifieddate,
+      </if>
+      <if test="reimbursenumC != null" >
+        reimbursenum__c,
+      </if>
+      <if test="createtimeC != null" >
+        createtime__c,
+      </if>
+      <if test="productnameC != null" >
+        productname__c,
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ordernumC != null" >
+        #{ordernumC,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedtimeC != null" >
+        #{receivedtimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="categoryC != null" >
+        #{categoryC,jdbcType=VARCHAR},
+      </if>
+      <if test="buynameC != null" >
+        #{buynameC,jdbcType=VARCHAR},
+      </if>
+      <if test="buyphoneC != null" >
+        #{buyphoneC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null" >
+        #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercomfirmtimeC != null" >
+        #{ordercomfirmtimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivetimeC != null" >
+        #{arrivetimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null" >
+        #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmodifieddate != null" >
+        #{lastmodifieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reimbursenumC != null" >
+        #{reimbursenumC,jdbcType=VARCHAR},
+      </if>
+      <if test="createtimeC != null" >
+        #{createtimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productnameC != null" >
+        #{productnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.ProductOrder" >
+    update productorder__c
+    <set >
+      <if test="ordernumC != null" >
+        ordernum__c = #{ordernumC,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedtimeC != null" >
+        receivedtime__c = #{receivedtimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createddate != null" >
+        createddate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="categoryC != null" >
+        category__c = #{categoryC,jdbcType=VARCHAR},
+      </if>
+      <if test="buynameC != null" >
+        buyname__c = #{buynameC,jdbcType=VARCHAR},
+      </if>
+      <if test="buyphoneC != null" >
+        buyphone__c = #{buyphoneC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null" >
+        sfid = #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        _hc_err = #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="ordercomfirmtimeC != null" >
+        ordercomfirmtime__c = #{ordercomfirmtimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="arrivetimeC != null" >
+        arrivetime__c = #{arrivetimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop = #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp = #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmodifieddate != null" >
+        lastmodifieddate = #{lastmodifieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reimbursenumC != null" >
+        reimbursenum__c = #{reimbursenumC,jdbcType=VARCHAR},
+      </if>
+      <if test="createtimeC != null" >
+        createtime__c = #{createtimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productnameC != null" >
+        productname__c = #{productnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted = #{isdeleted,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

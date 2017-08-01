@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.ProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.Project" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="shimaocoin__c" property="shimaocoinC" jdbcType="DOUBLE" />
+    <result column="createddate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="grantedsmb__c" property="grantedsmbC" jdbcType="DOUBLE" />
+    <result column="pspid__c" property="pspidC" jdbcType="VARCHAR" />
+    <result column="_hc_err" property="hcErr" jdbcType="VARCHAR" />
+    <result column="availablesmb__c" property="availablesmbC" jdbcType="DOUBLE" />
+    <result column="ktext__c" property="ktextC" jdbcType="VARCHAR" />
+    <result column="posid__c" property="posidC" jdbcType="VARCHAR" />
+    <result column="ownerid" property="ownerid" jdbcType="VARCHAR" />
+    <result column="proid__c" property="proidC" jdbcType="VARCHAR" />
+    <result column="parentnode__c" property="parentnodeC" jdbcType="VARCHAR" />
+    <result column="_hc_lastop" property="hcLastop" jdbcType="VARCHAR" />
+    <result column="lastmodifieddate" property="lastmodifieddate" jdbcType="TIMESTAMP" />
+    <result column="createdbyid" property="createdbyid" jdbcType="VARCHAR" />
+    <result column="lastreferenceddate" property="lastreferenceddate" jdbcType="TIMESTAMP" />
+    <result column="keyarray__c" property="keyarrayC" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pspnr__c" property="pspnrC" jdbcType="VARCHAR" />
+    <result column="buildwbs__c" property="buildwbsC" jdbcType="VARCHAR" />
+    <result column="spart__c" property="spartC" jdbcType="VARCHAR" />
+    <result column="systemmodstamp" property="systemmodstamp" jdbcType="TIMESTAMP" />
+    <result column="stufe__c" property="stufeC" jdbcType="VARCHAR" />
+    <result column="pspup__c" property="pspupC" jdbcType="VARCHAR" />
+    <result column="pspri__c" property="pspriC" jdbcType="VARCHAR" />
+    <result column="pr_bukrs__c" property="prBukrsC" jdbcType="VARCHAR" />
+    <result column="lastmodifiedbyid" property="lastmodifiedbyid" jdbcType="VARCHAR" />
+    <result column="vtweg__c" property="vtwegC" jdbcType="VARCHAR" />
+    <result column="vkorg__c" property="vkorgC" jdbcType="VARCHAR" />
+    <result column="lastvieweddate" property="lastvieweddate" jdbcType="TIMESTAMP" />
+    <result column="upkey__c" property="upkeyC" jdbcType="VARCHAR" />
+    <result column="isdeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="sumpoint__c" property="sumpointC" jdbcType="DOUBLE" />
+    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
+    <result column="lastactivitydate" property="lastactivitydate" jdbcType="DATE" />
+    <result column="pjcity__c" property="pjcityC" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, shimaocoin__c, createddate, grantedsmb__c, pspid__c, _hc_err, availablesmb__c, 
+    ktext__c, posid__c, ownerid, proid__c, parentnode__c, _hc_lastop, lastmodifieddate, 
+    createdbyid, lastreferenceddate, keyarray__c, name, pspnr__c, buildwbs__c, spart__c, 
+    systemmodstamp, stufe__c, pspup__c, pspri__c, pr_bukrs__c, lastmodifiedbyid, vtweg__c, 
+    vkorg__c, lastvieweddate, upkey__c, isdeleted, sumpoint__c, sfid, lastactivitydate, 
+    pjcity__c
+  </sql>
+  <select id="selectByGUID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from project__c
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByGUID" parameterType="java.lang.Integer" >
+    delete from project__c
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+ 
+  <insert id="insert" parameterType="com.celnet.dc.domain.Project" >
+    insert into project__c
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shimaocoinC != null" >
+        shimaocoin__c,
+      </if>
+      <if test="createddate != null" >
+        createddate,
+      </if>
+      <if test="grantedsmbC != null" >
+        grantedsmb__c,
+      </if>
+      <if test="pspidC != null" >
+        pspid__c,
+      </if>
+      <if test="hcErr != null" >
+        _hc_err,
+      </if>
+      <if test="availablesmbC != null" >
+        availablesmb__c,
+      </if>
+      <if test="ktextC != null" >
+        ktext__c,
+      </if>
+      <if test="posidC != null" >
+        posid__c,
+      </if>
+      <if test="ownerid != null" >
+        ownerid,
+      </if>
+      <if test="proidC != null" >
+        proid__c,
+      </if>
+      <if test="parentnodeC != null" >
+        parentnode__c,
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop,
+      </if>
+      <if test="lastmodifieddate != null" >
+        lastmodifieddate,
+      </if>
+      <if test="createdbyid != null" >
+        createdbyid,
+      </if>
+      <if test="lastreferenceddate != null" >
+        lastreferenceddate,
+      </if>
+      <if test="keyarrayC != null" >
+        keyarray__c,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="pspnrC != null" >
+        pspnr__c,
+      </if>
+      <if test="buildwbsC != null" >
+        buildwbs__c,
+      </if>
+      <if test="spartC != null" >
+        spart__c,
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp,
+      </if>
+      <if test="stufeC != null" >
+        stufe__c,
+      </if>
+      <if test="pspupC != null" >
+        pspup__c,
+      </if>
+      <if test="pspriC != null" >
+        pspri__c,
+      </if>
+      <if test="prBukrsC != null" >
+        pr_bukrs__c,
+      </if>
+      <if test="lastmodifiedbyid != null" >
+        lastmodifiedbyid,
+      </if>
+      <if test="vtwegC != null" >
+        vtweg__c,
+      </if>
+      <if test="vkorgC != null" >
+        vkorg__c,
+      </if>
+      <if test="lastvieweddate != null" >
+        lastvieweddate,
+      </if>
+      <if test="upkeyC != null" >
+        upkey__c,
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted,
+      </if>
+      <if test="sumpointC != null" >
+        sumpoint__c,
+      </if>
+      <if test="sfid != null" >
+        sfid,
+      </if>
+      <if test="lastactivitydate != null" >
+        lastactivitydate,
+      </if>
+      <if test="pjcityC != null" >
+        pjcity__c,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shimaocoinC != null" >
+        #{shimaocoinC,jdbcType=DOUBLE},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grantedsmbC != null" >
+        #{grantedsmbC,jdbcType=DOUBLE},
+      </if>
+      <if test="pspidC != null" >
+        #{pspidC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="availablesmbC != null" >
+        #{availablesmbC,jdbcType=DOUBLE},
+      </if>
+      <if test="ktextC != null" >
+        #{ktextC,jdbcType=VARCHAR},
+      </if>
+      <if test="posidC != null" >
+        #{posidC,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerid != null" >
+        #{ownerid,jdbcType=VARCHAR},
+      </if>
+      <if test="proidC != null" >
+        #{proidC,jdbcType=VARCHAR},
+      </if>
+      <if test="parentnodeC != null" >
+        #{parentnodeC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifieddate != null" >
+        #{lastmodifieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null" >
+        #{createdbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastreferenceddate != null" >
+        #{lastreferenceddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keyarrayC != null" >
+        #{keyarrayC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pspnrC != null" >
+        #{pspnrC,jdbcType=VARCHAR},
+      </if>
+      <if test="buildwbsC != null" >
+        #{buildwbsC,jdbcType=VARCHAR},
+      </if>
+      <if test="spartC != null" >
+        #{spartC,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null" >
+        #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stufeC != null" >
+        #{stufeC,jdbcType=VARCHAR},
+      </if>
+      <if test="pspupC != null" >
+        #{pspupC,jdbcType=VARCHAR},
+      </if>
+      <if test="pspriC != null" >
+        #{pspriC,jdbcType=VARCHAR},
+      </if>
+      <if test="prBukrsC != null" >
+        #{prBukrsC,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiedbyid != null" >
+        #{lastmodifiedbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="vtwegC != null" >
+        #{vtwegC,jdbcType=VARCHAR},
+      </if>
+      <if test="vkorgC != null" >
+        #{vkorgC,jdbcType=VARCHAR},
+      </if>
+      <if test="lastvieweddate != null" >
+        #{lastvieweddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="upkeyC != null" >
+        #{upkeyC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="sumpointC != null" >
+        #{sumpointC,jdbcType=DOUBLE},
+      </if>
+      <if test="sfid != null" >
+        #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastactivitydate != null" >
+        #{lastactivitydate,jdbcType=DATE},
+      </if>
+      <if test="pjcityC != null" >
+        #{pjcityC,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.Project" >
+    update project__c
+    <set >
+      <if test="shimaocoinC != null" >
+        shimaocoin__c = #{shimaocoinC,jdbcType=DOUBLE},
+      </if>
+      <if test="createddate != null" >
+        createddate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="grantedsmbC != null" >
+        grantedsmb__c = #{grantedsmbC,jdbcType=DOUBLE},
+      </if>
+      <if test="pspidC != null" >
+        pspid__c = #{pspidC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        _hc_err = #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="availablesmbC != null" >
+        availablesmb__c = #{availablesmbC,jdbcType=DOUBLE},
+      </if>
+      <if test="ktextC != null" >
+        ktext__c = #{ktextC,jdbcType=VARCHAR},
+      </if>
+      <if test="posidC != null" >
+        posid__c = #{posidC,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerid != null" >
+        ownerid = #{ownerid,jdbcType=VARCHAR},
+      </if>
+      <if test="proidC != null" >
+        proid__c = #{proidC,jdbcType=VARCHAR},
+      </if>
+      <if test="parentnodeC != null" >
+        parentnode__c = #{parentnodeC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop = #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifieddate != null" >
+        lastmodifieddate = #{lastmodifieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null" >
+        createdbyid = #{createdbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastreferenceddate != null" >
+        lastreferenceddate = #{lastreferenceddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="keyarrayC != null" >
+        keyarray__c = #{keyarrayC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="pspnrC != null" >
+        pspnr__c = #{pspnrC,jdbcType=VARCHAR},
+      </if>
+      <if test="buildwbsC != null" >
+        buildwbs__c = #{buildwbsC,jdbcType=VARCHAR},
+      </if>
+      <if test="spartC != null" >
+        spart__c = #{spartC,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp = #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stufeC != null" >
+        stufe__c = #{stufeC,jdbcType=VARCHAR},
+      </if>
+      <if test="pspupC != null" >
+        pspup__c = #{pspupC,jdbcType=VARCHAR},
+      </if>
+      <if test="pspriC != null" >
+        pspri__c = #{pspriC,jdbcType=VARCHAR},
+      </if>
+      <if test="prBukrsC != null" >
+        pr_bukrs__c = #{prBukrsC,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifiedbyid != null" >
+        lastmodifiedbyid = #{lastmodifiedbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="vtwegC != null" >
+        vtweg__c = #{vtwegC,jdbcType=VARCHAR},
+      </if>
+      <if test="vkorgC != null" >
+        vkorg__c = #{vkorgC,jdbcType=VARCHAR},
+      </if>
+      <if test="lastvieweddate != null" >
+        lastvieweddate = #{lastvieweddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="upkeyC != null" >
+        upkey__c = #{upkeyC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted = #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="sumpointC != null" >
+        sumpoint__c = #{sumpointC,jdbcType=DOUBLE},
+      </if>
+      <if test="sfid != null" >
+        sfid = #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastactivitydate != null" >
+        lastactivitydate = #{lastactivitydate,jdbcType=DATE},
+      </if>
+      <if test="pjcityC != null" >
+        pjcity__c = #{pjcityC,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

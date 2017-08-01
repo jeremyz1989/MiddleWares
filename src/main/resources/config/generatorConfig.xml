@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration 
+	PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+	<!-- 数据库驱动包位置 -->
+	<classPathEntry
+		location="D:\00-TOOLS\maven\repositor\postgresql\postgresql\9.1-901-1.jdbc4\postgresql-9.1-901-1.jdbc4.jar" />
+	<context id="PostgreTables" targetRuntime="MyBatis3">
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection driverClass="org.postgresql.Driver"
+			connectionURL="jdbc:postgresql://ec2-34-224-135-87.compute-1.amazonaws.com:5432/dak2650mvhf08l?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"
+			userId="u5dgm35oegv2ok"
+			password="paa9e40fcfbd79f9f937e6937c271a02db581969f1cff699eb114373ae6dde769">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!--生成Model类存放的包名和位置 -->
+		<javaModelGenerator targetPackage="com.celnet.dc.domain"
+			targetProject="D:\workspace\MiddleWares\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--生成xml映射文件存放位置 -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="D:\workspace\MiddleWares\src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!--生成Dao类存放位置 -->
+		<!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码 type="ANNOTATEDMAPPER",生成Java Model 
+			和基于注解的Mapper对象 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象 type="XMLMAPPER",生成SQLMap 
+			XML文件和独立的Mapper接口 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.celnet.dc.dao" targetProject="D:\workspace\MiddleWares\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 生成对应表及类名，要生成的那些表(更改tableName 和domainObjectName 就可以了) -->
+		<table tableName="account_source" domainObjectName="AaccountSource"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<!-- 忽略列，不生成bean 字段 <ignoreColumn column="FRED" /> -->
+			<!-- 指定列的java数据类型 <columnOverride column="DOUBLE" jdbcType="DECIMAL" /> -->
+		</table>
+
+	</context>
+</generatorConfiguration>

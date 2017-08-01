@@ -1,0 +1,1282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.PurchaseContractMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.PurchaseContract" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="productgroup__c" property="productgroupC" jdbcType="VARCHAR" />
+    <result column="salesareatype__c" property="salesareatypeC" jdbcType="VARCHAR" />
+    <result column="del__c" property="delC" jdbcType="BIT" />
+    <result column="depositstatus__c" property="depositstatusC" jdbcType="VARCHAR" />
+    <result column="roomnumber__c" property="roomnumberC" jdbcType="VARCHAR" />
+    <result column="payamt__c" property="payamtC" jdbcType="DOUBLE" />
+    <result column="equityperson5__c" property="equityperson5C" jdbcType="VARCHAR" />
+    <result column="planpossessiondate__c" property="planpossessiondateC" jdbcType="DATE" />
+    <result column="contractversion__c" property="contractversionC" jdbcType="VARCHAR" />
+    <result column="bwbs__c" property="bwbsC" jdbcType="VARCHAR" />
+    <result column="formalconnumber__c" property="formalconnumberC" jdbcType="VARCHAR" />
+    <result column="equityperson4id__c" property="equityperson4idC" jdbcType="VARCHAR" />
+    <result column="unitname__c" property="unitnameC" jdbcType="VARCHAR" />
+    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
+    <result column="buildcontract__c" property="buildcontractC" jdbcType="VARCHAR" />
+    <result column="_hc_lastop" property="hcLastop" jdbcType="VARCHAR" />
+    <result column="proedfinition__c" property="proedfinitionC" jdbcType="VARCHAR" />
+    <result column="equityperson1__c" property="equityperson1C" jdbcType="VARCHAR" />
+    <result column="whetherget__c" property="whethergetC" jdbcType="VARCHAR" />
+    <result column="salesarea__c" property="salesareaC" jdbcType="DOUBLE" />
+    <result column="entryname__c" property="entrynameC" jdbcType="VARCHAR" />
+    <result column="equityperson4__c" property="equityperson4C" jdbcType="VARCHAR" />
+    <result column="contractstatus__c" property="contractstatusC" jdbcType="VARCHAR" />
+    <result column="datesigning__c" property="datesigningC" jdbcType="DATE" />
+    <result column="bcamt__c" property="bcamtC" jdbcType="DOUBLE" />
+    <result column="buildarea__c" property="buildareaC" jdbcType="DOUBLE" />
+    <result column="orderpropertytype__c" property="orderpropertytypeC" jdbcType="VARCHAR" />
+    <result column="unit__c" property="unitC" jdbcType="VARCHAR" />
+    <result column="ordersalesarea__c" property="ordersalesareaC" jdbcType="DOUBLE" />
+    <result column="finalareementprice__c" property="finalareementpriceC" jdbcType="DOUBLE" />
+    <result column="salescountdate__c" property="salescountdateC" jdbcType="DATE" />
+    <result column="followupservic__c" property="followupservicC" jdbcType="VARCHAR" />
+    <result column="_hc_err" property="hcErr" jdbcType="VARCHAR" />
+    <result column="orderroomnumber__c" property="orderroomnumberC" jdbcType="VARCHAR" />
+    <result column="equityperson1idnumber__c" property="equityperson1idnumberC" jdbcType="VARCHAR" />
+    <result column="ordersalesman__c" property="ordersalesmanC" jdbcType="VARCHAR" />
+    <result column="completiondate__c" property="completiondateC" jdbcType="DATE" />
+    <result column="discountrate__c" property="discountrateC" jdbcType="DOUBLE" />
+    <result column="paytype__c" property="paytypeC" jdbcType="VARCHAR" />
+    <result column="financesigneddate__c" property="financesigneddateC" jdbcType="VARCHAR" />
+    <result column="moneyapply__c" property="moneyapplyC" jdbcType="BIT" />
+    <result column="accountid__c" property="accountidC" jdbcType="VARCHAR" />
+    <result column="salesproperty__c" property="salespropertyC" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="accountkeyid__c" property="accountkeyidC" jdbcType="VARCHAR" />
+    <result column="salescountdatetime__c" property="salescountdatetimeC" jdbcType="TIMESTAMP" />
+    <result column="salesorg__c" property="salesorgC" jdbcType="VARCHAR" />
+    <result column="accountname__c" property="accountnameC" jdbcType="VARCHAR" />
+    <result column="companycode__c" property="companycodeC" jdbcType="VARCHAR" />
+    <result column="building__c" property="buildingC" jdbcType="VARCHAR" />
+    <result column="deposit__c" property="depositC" jdbcType="DOUBLE" />
+    <result column="systemmodstamp" property="systemmodstamp" jdbcType="TIMESTAMP" />
+    <result column="refencecoin_del__c" property="refencecoinDelC" jdbcType="DOUBLE" />
+    <result column="sernr__c" property="sernrC" jdbcType="VARCHAR" />
+    <result column="payname__c" property="paynameC" jdbcType="VARCHAR" />
+    <result column="typecontract__c" property="typecontractC" jdbcType="VARCHAR" />
+    <result column="servicespeople__c" property="servicespeopleC" jdbcType="VARCHAR" />
+    <result column="predicttoatalprice__c" property="predicttoatalpriceC" jdbcType="DOUBLE" />
+    <result column="salesdocument__c" property="salesdocumentC" jdbcType="VARCHAR" />
+    <result column="equityperson1id__c" property="equityperson1idC" jdbcType="VARCHAR" />
+    <result column="equityperson3idnumber__c" property="equityperson3idnumberC" jdbcType="VARCHAR" />
+    <result column="tosettle__c" property="tosettleC" jdbcType="BIT" />
+    <result column="equityperson1bdkunnr__c" property="equityperson1bdkunnrC" jdbcType="VARCHAR" />
+    <result column="equityperson3id__c" property="equityperson3idC" jdbcType="VARCHAR" />
+    <result column="equityperson3__c" property="equityperson3C" jdbcType="VARCHAR" />
+    <result column="finalprice__c" property="finalpriceC" jdbcType="DOUBLE" />
+    <result column="formalordernum__c" property="formalordernumC" jdbcType="VARCHAR" />
+    <result column="frozenstate__c" property="frozenstateC" jdbcType="VARCHAR" />
+    <result column="decorationtype__c" property="decorationtypeC" jdbcType="VARCHAR" />
+    <result column="agreewith__c" property="agreewithC" jdbcType="BIT" />
+    <result column="finaltotalprice__c" property="finaltotalpriceC" jdbcType="DOUBLE" />
+    <result column="orderstatus__c" property="orderstatusC" jdbcType="VARCHAR" />
+    <result column="housinginformation__c" property="housinginformationC" jdbcType="VARCHAR" />
+    <result column="equitypersonid__c" property="equitypersonidC" jdbcType="VARCHAR" />
+    <result column="recommendtype__c" property="recommendtypeC" jdbcType="VARCHAR" />
+    <result column="alreadycollection__c" property="alreadycollectionC" jdbcType="DOUBLE" />
+    <result column="housename__c" property="housenameC" jdbcType="VARCHAR" />
+    <result column="indoorarea__c" property="indoorareaC" jdbcType="DOUBLE" />
+    <result column="contractawarddate2__c" property="contractawarddate2C" jdbcType="DATE" />
+    <result column="initiationcontract__c" property="initiationcontractC" jdbcType="BIT" />
+    <result column="equityperson4idnumber__c" property="equityperson4idnumberC" jdbcType="VARCHAR" />
+    <result column="commonlyphone1__c" property="commonlyphone1C" jdbcType="VARCHAR" />
+    <result column="unitprice__c" property="unitpriceC" jdbcType="DOUBLE" />
+    <result column="createddate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="salesman__c" property="salesmanC" jdbcType="VARCHAR" />
+    <result column="equityperson2__c" property="equityperson2C" jdbcType="VARCHAR" />
+    <result column="commonnotcommon__c" property="commonnotcommonC" jdbcType="VARCHAR" />
+    <result column="project__c" property="projectC" jdbcType="VARCHAR" />
+    <result column="equityperson2idnumber__c" property="equityperson2idnumberC" jdbcType="VARCHAR" />
+    <result column="unlockdate__c" property="unlockdateC" jdbcType="TIMESTAMP" />
+    <result column="propertytype__c" property="propertytypeC" jdbcType="VARCHAR" />
+    <result column="isdeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="ordernumber__c" property="ordernumberC" jdbcType="VARCHAR" />
+    <result column="accountacceptdate2__c" property="accountacceptdate2C" jdbcType="DATE" />
+    <result column="house__c" property="houseC" jdbcType="VARCHAR" />
+    <result column="dateobsolete__c" property="dateobsoleteC" jdbcType="VARCHAR" />
+    <result column="stagename__c" property="stagenameC" jdbcType="VARCHAR" />
+    <result column="createdbyid" property="createdbyid" jdbcType="VARCHAR" />
+    <result column="accountnameb__c" property="accountnamebC" jdbcType="VARCHAR" />
+    <result column="acceptowner__c" property="acceptownerC" jdbcType="VARCHAR" />
+    <result column="beginningsign__c" property="beginningsignC" jdbcType="VARCHAR" />
+    <result column="finalagreeprice__c" property="finalagreepriceC" jdbcType="DOUBLE" />
+    <result column="plannedtime__c" property="plannedtimeC" jdbcType="DATE" />
+    <result column="amountpayable__c" property="amountpayableC" jdbcType="DOUBLE" />
+    <result column="servicesdate__c" property="servicesdateC" jdbcType="VARCHAR" />
+    <result column="fundstype__c" property="fundstypeC" jdbcType="VARCHAR" />
+    <result column="contractawarddate__c" property="contractawarddateC" jdbcType="DATE" />
+    <result column="servicerecordsdate__c" property="servicerecordsdateC" jdbcType="VARCHAR" />
+    <result column="transferdate__c" property="transferdateC" jdbcType="DATE" />
+    <result column="idnumber__c" property="idnumberC" jdbcType="VARCHAR" />
+    <result column="salestype__c" property="salestypeC" jdbcType="VARCHAR" />
+    <result column="contractnum__c" property="contractnumC" jdbcType="VARCHAR" />
+    <result column="acceptextenddate__c" property="acceptextenddateC" jdbcType="VARCHAR" />
+    <result column="accountacceptdate__c" property="accountacceptdateC" jdbcType="DATE" />
+    <result column="isselfrecommend__c" property="isselfrecommendC" jdbcType="BIT" />
+    <result column="employeecontract__c" property="employeecontractC" jdbcType="VARCHAR" />
+    <result column="pplamt__c" property="pplamtC" jdbcType="DOUBLE" />
+    <result column="acceptownername__c" property="acceptownernameC" jdbcType="VARCHAR" />
+    <result column="orderkeyarray__c" property="orderkeyarrayC" jdbcType="VARCHAR" />
+    <result column="isdelete__c" property="isdeleteC" jdbcType="VARCHAR" />
+    <result column="lastmodifieddate" property="lastmodifieddate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, productgroup__c, salesareatype__c, del__c, depositstatus__c, roomnumber__c, payamt__c, 
+    equityperson5__c, planpossessiondate__c, contractversion__c, bwbs__c, formalconnumber__c, 
+    equityperson4id__c, unitname__c, sfid, buildcontract__c, _hc_lastop, proedfinition__c, 
+    equityperson1__c, whetherget__c, salesarea__c, entryname__c, equityperson4__c, contractstatus__c, 
+    datesigning__c, bcamt__c, buildarea__c, orderpropertytype__c, unit__c, ordersalesarea__c, 
+    finalareementprice__c, salescountdate__c, followupservic__c, _hc_err, orderroomnumber__c, 
+    equityperson1idnumber__c, ordersalesman__c, completiondate__c, discountrate__c, paytype__c, 
+    financesigneddate__c, moneyapply__c, accountid__c, salesproperty__c, name, accountkeyid__c, 
+    salescountdatetime__c, salesorg__c, accountname__c, companycode__c, building__c, 
+    deposit__c, systemmodstamp, refencecoin_del__c, sernr__c, payname__c, typecontract__c, 
+    servicespeople__c, predicttoatalprice__c, salesdocument__c, equityperson1id__c, equityperson3idnumber__c, 
+    tosettle__c, equityperson1bdkunnr__c, equityperson3id__c, equityperson3__c, finalprice__c, 
+    formalordernum__c, frozenstate__c, decorationtype__c, agreewith__c, finaltotalprice__c, 
+    orderstatus__c, housinginformation__c, equitypersonid__c, recommendtype__c, alreadycollection__c, 
+    housename__c, indoorarea__c, contractawarddate2__c, initiationcontract__c, equityperson4idnumber__c, 
+    commonlyphone1__c, unitprice__c, createddate, salesman__c, equityperson2__c, commonnotcommon__c, 
+    project__c, equityperson2idnumber__c, unlockdate__c, propertytype__c, isdeleted, 
+    ordernumber__c, accountacceptdate2__c, house__c, dateobsolete__c, stagename__c, createdbyid, 
+    accountnameb__c, acceptowner__c, beginningsign__c, finalagreeprice__c, plannedtime__c, 
+    amountpayable__c, servicesdate__c, fundstype__c, contractawarddate__c, servicerecordsdate__c, 
+    transferdate__c, idnumber__c, salestype__c, contractnum__c, acceptextenddate__c, 
+    accountacceptdate__c, isselfrecommend__c, employeecontract__c, pplamt__c, acceptownername__c, 
+    orderkeyarray__c, isdelete__c, lastmodifieddate
+  </sql>
+  <select id="selectByGUID" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from purchasecontract__c
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByGUID" parameterType="java.lang.Integer" >
+    delete from purchasecontract__c
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.celnet.dc.domain.PurchaseContract" >
+    insert into purchasecontract__c
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="productgroupC != null" >
+        productgroup__c,
+      </if>
+      <if test="salesareatypeC != null" >
+        salesareatype__c,
+      </if>
+      <if test="delC != null" >
+        del__c,
+      </if>
+      <if test="depositstatusC != null" >
+        depositstatus__c,
+      </if>
+      <if test="roomnumberC != null" >
+        roomnumber__c,
+      </if>
+      <if test="payamtC != null" >
+        payamt__c,
+      </if>
+      <if test="equityperson5C != null" >
+        equityperson5__c,
+      </if>
+      <if test="planpossessiondateC != null" >
+        planpossessiondate__c,
+      </if>
+      <if test="contractversionC != null" >
+        contractversion__c,
+      </if>
+      <if test="bwbsC != null" >
+        bwbs__c,
+      </if>
+      <if test="formalconnumberC != null" >
+        formalconnumber__c,
+      </if>
+      <if test="equityperson4idC != null" >
+        equityperson4id__c,
+      </if>
+      <if test="unitnameC != null" >
+        unitname__c,
+      </if>
+      <if test="sfid != null" >
+        sfid,
+      </if>
+      <if test="buildcontractC != null" >
+        buildcontract__c,
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop,
+      </if>
+      <if test="proedfinitionC != null" >
+        proedfinition__c,
+      </if>
+      <if test="equityperson1C != null" >
+        equityperson1__c,
+      </if>
+      <if test="whethergetC != null" >
+        whetherget__c,
+      </if>
+      <if test="salesareaC != null" >
+        salesarea__c,
+      </if>
+      <if test="entrynameC != null" >
+        entryname__c,
+      </if>
+      <if test="equityperson4C != null" >
+        equityperson4__c,
+      </if>
+      <if test="contractstatusC != null" >
+        contractstatus__c,
+      </if>
+      <if test="datesigningC != null" >
+        datesigning__c,
+      </if>
+      <if test="bcamtC != null" >
+        bcamt__c,
+      </if>
+      <if test="buildareaC != null" >
+        buildarea__c,
+      </if>
+      <if test="orderpropertytypeC != null" >
+        orderpropertytype__c,
+      </if>
+      <if test="unitC != null" >
+        unit__c,
+      </if>
+      <if test="ordersalesareaC != null" >
+        ordersalesarea__c,
+      </if>
+      <if test="finalareementpriceC != null" >
+        finalareementprice__c,
+      </if>
+      <if test="salescountdateC != null" >
+        salescountdate__c,
+      </if>
+      <if test="followupservicC != null" >
+        followupservic__c,
+      </if>
+      <if test="hcErr != null" >
+        _hc_err,
+      </if>
+      <if test="orderroomnumberC != null" >
+        orderroomnumber__c,
+      </if>
+      <if test="equityperson1idnumberC != null" >
+        equityperson1idnumber__c,
+      </if>
+      <if test="ordersalesmanC != null" >
+        ordersalesman__c,
+      </if>
+      <if test="completiondateC != null" >
+        completiondate__c,
+      </if>
+      <if test="discountrateC != null" >
+        discountrate__c,
+      </if>
+      <if test="paytypeC != null" >
+        paytype__c,
+      </if>
+      <if test="financesigneddateC != null" >
+        financesigneddate__c,
+      </if>
+      <if test="moneyapplyC != null" >
+        moneyapply__c,
+      </if>
+      <if test="accountidC != null" >
+        accountid__c,
+      </if>
+      <if test="salespropertyC != null" >
+        salesproperty__c,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="accountkeyidC != null" >
+        accountkeyid__c,
+      </if>
+      <if test="salescountdatetimeC != null" >
+        salescountdatetime__c,
+      </if>
+      <if test="salesorgC != null" >
+        salesorg__c,
+      </if>
+      <if test="accountnameC != null" >
+        accountname__c,
+      </if>
+      <if test="companycodeC != null" >
+        companycode__c,
+      </if>
+      <if test="buildingC != null" >
+        building__c,
+      </if>
+      <if test="depositC != null" >
+        deposit__c,
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp,
+      </if>
+      <if test="refencecoinDelC != null" >
+        refencecoin_del__c,
+      </if>
+      <if test="sernrC != null" >
+        sernr__c,
+      </if>
+      <if test="paynameC != null" >
+        payname__c,
+      </if>
+      <if test="typecontractC != null" >
+        typecontract__c,
+      </if>
+      <if test="servicespeopleC != null" >
+        servicespeople__c,
+      </if>
+      <if test="predicttoatalpriceC != null" >
+        predicttoatalprice__c,
+      </if>
+      <if test="salesdocumentC != null" >
+        salesdocument__c,
+      </if>
+      <if test="equityperson1idC != null" >
+        equityperson1id__c,
+      </if>
+      <if test="equityperson3idnumberC != null" >
+        equityperson3idnumber__c,
+      </if>
+      <if test="tosettleC != null" >
+        tosettle__c,
+      </if>
+      <if test="equityperson1bdkunnrC != null" >
+        equityperson1bdkunnr__c,
+      </if>
+      <if test="equityperson3idC != null" >
+        equityperson3id__c,
+      </if>
+      <if test="equityperson3C != null" >
+        equityperson3__c,
+      </if>
+      <if test="finalpriceC != null" >
+        finalprice__c,
+      </if>
+      <if test="formalordernumC != null" >
+        formalordernum__c,
+      </if>
+      <if test="frozenstateC != null" >
+        frozenstate__c,
+      </if>
+      <if test="decorationtypeC != null" >
+        decorationtype__c,
+      </if>
+      <if test="agreewithC != null" >
+        agreewith__c,
+      </if>
+      <if test="finaltotalpriceC != null" >
+        finaltotalprice__c,
+      </if>
+      <if test="orderstatusC != null" >
+        orderstatus__c,
+      </if>
+      <if test="housinginformationC != null" >
+        housinginformation__c,
+      </if>
+      <if test="equitypersonidC != null" >
+        equitypersonid__c,
+      </if>
+      <if test="recommendtypeC != null" >
+        recommendtype__c,
+      </if>
+      <if test="alreadycollectionC != null" >
+        alreadycollection__c,
+      </if>
+      <if test="housenameC != null" >
+        housename__c,
+      </if>
+      <if test="indoorareaC != null" >
+        indoorarea__c,
+      </if>
+      <if test="contractawarddate2C != null" >
+        contractawarddate2__c,
+      </if>
+      <if test="initiationcontractC != null" >
+        initiationcontract__c,
+      </if>
+      <if test="equityperson4idnumberC != null" >
+        equityperson4idnumber__c,
+      </if>
+      <if test="commonlyphone1C != null" >
+        commonlyphone1__c,
+      </if>
+      <if test="unitpriceC != null" >
+        unitprice__c,
+      </if>
+      <if test="createddate != null" >
+        createddate,
+      </if>
+      <if test="salesmanC != null" >
+        salesman__c,
+      </if>
+      <if test="equityperson2C != null" >
+        equityperson2__c,
+      </if>
+      <if test="commonnotcommonC != null" >
+        commonnotcommon__c,
+      </if>
+      <if test="projectC != null" >
+        project__c,
+      </if>
+      <if test="equityperson2idnumberC != null" >
+        equityperson2idnumber__c,
+      </if>
+      <if test="unlockdateC != null" >
+        unlockdate__c,
+      </if>
+      <if test="propertytypeC != null" >
+        propertytype__c,
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted,
+      </if>
+      <if test="ordernumberC != null" >
+        ordernumber__c,
+      </if>
+      <if test="accountacceptdate2C != null" >
+        accountacceptdate2__c,
+      </if>
+      <if test="houseC != null" >
+        house__c,
+      </if>
+      <if test="dateobsoleteC != null" >
+        dateobsolete__c,
+      </if>
+      <if test="stagenameC != null" >
+        stagename__c,
+      </if>
+      <if test="createdbyid != null" >
+        createdbyid,
+      </if>
+      <if test="accountnamebC != null" >
+        accountnameb__c,
+      </if>
+      <if test="acceptownerC != null" >
+        acceptowner__c,
+      </if>
+      <if test="beginningsignC != null" >
+        beginningsign__c,
+      </if>
+      <if test="finalagreepriceC != null" >
+        finalagreeprice__c,
+      </if>
+      <if test="plannedtimeC != null" >
+        plannedtime__c,
+      </if>
+      <if test="amountpayableC != null" >
+        amountpayable__c,
+      </if>
+      <if test="servicesdateC != null" >
+        servicesdate__c,
+      </if>
+      <if test="fundstypeC != null" >
+        fundstype__c,
+      </if>
+      <if test="contractawarddateC != null" >
+        contractawarddate__c,
+      </if>
+      <if test="servicerecordsdateC != null" >
+        servicerecordsdate__c,
+      </if>
+      <if test="transferdateC != null" >
+        transferdate__c,
+      </if>
+      <if test="idnumberC != null" >
+        idnumber__c,
+      </if>
+      <if test="salestypeC != null" >
+        salestype__c,
+      </if>
+      <if test="contractnumC != null" >
+        contractnum__c,
+      </if>
+      <if test="acceptextenddateC != null" >
+        acceptextenddate__c,
+      </if>
+      <if test="accountacceptdateC != null" >
+        accountacceptdate__c,
+      </if>
+      <if test="isselfrecommendC != null" >
+        isselfrecommend__c,
+      </if>
+      <if test="employeecontractC != null" >
+        employeecontract__c,
+      </if>
+      <if test="pplamtC != null" >
+        pplamt__c,
+      </if>
+      <if test="acceptownernameC != null" >
+        acceptownername__c,
+      </if>
+      <if test="orderkeyarrayC != null" >
+        orderkeyarray__c,
+      </if>
+      <if test="isdeleteC != null" >
+        isdelete__c,
+      </if>
+      <if test="lastmodifieddate != null" >
+        lastmodifieddate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="productgroupC != null" >
+        #{productgroupC,jdbcType=VARCHAR},
+      </if>
+      <if test="salesareatypeC != null" >
+        #{salesareatypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="delC != null" >
+        #{delC,jdbcType=BIT},
+      </if>
+      <if test="depositstatusC != null" >
+        #{depositstatusC,jdbcType=VARCHAR},
+      </if>
+      <if test="roomnumberC != null" >
+        #{roomnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="payamtC != null" >
+        #{payamtC,jdbcType=DOUBLE},
+      </if>
+      <if test="equityperson5C != null" >
+        #{equityperson5C,jdbcType=VARCHAR},
+      </if>
+      <if test="planpossessiondateC != null" >
+        #{planpossessiondateC,jdbcType=DATE},
+      </if>
+      <if test="contractversionC != null" >
+        #{contractversionC,jdbcType=VARCHAR},
+      </if>
+      <if test="bwbsC != null" >
+        #{bwbsC,jdbcType=VARCHAR},
+      </if>
+      <if test="formalconnumberC != null" >
+        #{formalconnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson4idC != null" >
+        #{equityperson4idC,jdbcType=VARCHAR},
+      </if>
+      <if test="unitnameC != null" >
+        #{unitnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null" >
+        #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="buildcontractC != null" >
+        #{buildcontractC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="proedfinitionC != null" >
+        #{proedfinitionC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson1C != null" >
+        #{equityperson1C,jdbcType=VARCHAR},
+      </if>
+      <if test="whethergetC != null" >
+        #{whethergetC,jdbcType=VARCHAR},
+      </if>
+      <if test="salesareaC != null" >
+        #{salesareaC,jdbcType=DOUBLE},
+      </if>
+      <if test="entrynameC != null" >
+        #{entrynameC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson4C != null" >
+        #{equityperson4C,jdbcType=VARCHAR},
+      </if>
+      <if test="contractstatusC != null" >
+        #{contractstatusC,jdbcType=VARCHAR},
+      </if>
+      <if test="datesigningC != null" >
+        #{datesigningC,jdbcType=DATE},
+      </if>
+      <if test="bcamtC != null" >
+        #{bcamtC,jdbcType=DOUBLE},
+      </if>
+      <if test="buildareaC != null" >
+        #{buildareaC,jdbcType=DOUBLE},
+      </if>
+      <if test="orderpropertytypeC != null" >
+        #{orderpropertytypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="unitC != null" >
+        #{unitC,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersalesareaC != null" >
+        #{ordersalesareaC,jdbcType=DOUBLE},
+      </if>
+      <if test="finalareementpriceC != null" >
+        #{finalareementpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="salescountdateC != null" >
+        #{salescountdateC,jdbcType=DATE},
+      </if>
+      <if test="followupservicC != null" >
+        #{followupservicC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="orderroomnumberC != null" >
+        #{orderroomnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson1idnumberC != null" >
+        #{equityperson1idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersalesmanC != null" >
+        #{ordersalesmanC,jdbcType=VARCHAR},
+      </if>
+      <if test="completiondateC != null" >
+        #{completiondateC,jdbcType=DATE},
+      </if>
+      <if test="discountrateC != null" >
+        #{discountrateC,jdbcType=DOUBLE},
+      </if>
+      <if test="paytypeC != null" >
+        #{paytypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="financesigneddateC != null" >
+        #{financesigneddateC,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyapplyC != null" >
+        #{moneyapplyC,jdbcType=BIT},
+      </if>
+      <if test="accountidC != null" >
+        #{accountidC,jdbcType=VARCHAR},
+      </if>
+      <if test="salespropertyC != null" >
+        #{salespropertyC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="accountkeyidC != null" >
+        #{accountkeyidC,jdbcType=VARCHAR},
+      </if>
+      <if test="salescountdatetimeC != null" >
+        #{salescountdatetimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salesorgC != null" >
+        #{salesorgC,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnameC != null" >
+        #{accountnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="companycodeC != null" >
+        #{companycodeC,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingC != null" >
+        #{buildingC,jdbcType=VARCHAR},
+      </if>
+      <if test="depositC != null" >
+        #{depositC,jdbcType=DOUBLE},
+      </if>
+      <if test="systemmodstamp != null" >
+        #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refencecoinDelC != null" >
+        #{refencecoinDelC,jdbcType=DOUBLE},
+      </if>
+      <if test="sernrC != null" >
+        #{sernrC,jdbcType=VARCHAR},
+      </if>
+      <if test="paynameC != null" >
+        #{paynameC,jdbcType=VARCHAR},
+      </if>
+      <if test="typecontractC != null" >
+        #{typecontractC,jdbcType=VARCHAR},
+      </if>
+      <if test="servicespeopleC != null" >
+        #{servicespeopleC,jdbcType=VARCHAR},
+      </if>
+      <if test="predicttoatalpriceC != null" >
+        #{predicttoatalpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="salesdocumentC != null" >
+        #{salesdocumentC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson1idC != null" >
+        #{equityperson1idC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson3idnumberC != null" >
+        #{equityperson3idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="tosettleC != null" >
+        #{tosettleC,jdbcType=BIT},
+      </if>
+      <if test="equityperson1bdkunnrC != null" >
+        #{equityperson1bdkunnrC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson3idC != null" >
+        #{equityperson3idC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson3C != null" >
+        #{equityperson3C,jdbcType=VARCHAR},
+      </if>
+      <if test="finalpriceC != null" >
+        #{finalpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="formalordernumC != null" >
+        #{formalordernumC,jdbcType=VARCHAR},
+      </if>
+      <if test="frozenstateC != null" >
+        #{frozenstateC,jdbcType=VARCHAR},
+      </if>
+      <if test="decorationtypeC != null" >
+        #{decorationtypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="agreewithC != null" >
+        #{agreewithC,jdbcType=BIT},
+      </if>
+      <if test="finaltotalpriceC != null" >
+        #{finaltotalpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="orderstatusC != null" >
+        #{orderstatusC,jdbcType=VARCHAR},
+      </if>
+      <if test="housinginformationC != null" >
+        #{housinginformationC,jdbcType=VARCHAR},
+      </if>
+      <if test="equitypersonidC != null" >
+        #{equitypersonidC,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendtypeC != null" >
+        #{recommendtypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="alreadycollectionC != null" >
+        #{alreadycollectionC,jdbcType=DOUBLE},
+      </if>
+      <if test="housenameC != null" >
+        #{housenameC,jdbcType=VARCHAR},
+      </if>
+      <if test="indoorareaC != null" >
+        #{indoorareaC,jdbcType=DOUBLE},
+      </if>
+      <if test="contractawarddate2C != null" >
+        #{contractawarddate2C,jdbcType=DATE},
+      </if>
+      <if test="initiationcontractC != null" >
+        #{initiationcontractC,jdbcType=BIT},
+      </if>
+      <if test="equityperson4idnumberC != null" >
+        #{equityperson4idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="commonlyphone1C != null" >
+        #{commonlyphone1C,jdbcType=VARCHAR},
+      </if>
+      <if test="unitpriceC != null" >
+        #{unitpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salesmanC != null" >
+        #{salesmanC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson2C != null" >
+        #{equityperson2C,jdbcType=VARCHAR},
+      </if>
+      <if test="commonnotcommonC != null" >
+        #{commonnotcommonC,jdbcType=VARCHAR},
+      </if>
+      <if test="projectC != null" >
+        #{projectC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson2idnumberC != null" >
+        #{equityperson2idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="unlockdateC != null" >
+        #{unlockdateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="propertytypeC != null" >
+        #{propertytypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="ordernumberC != null" >
+        #{ordernumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="accountacceptdate2C != null" >
+        #{accountacceptdate2C,jdbcType=DATE},
+      </if>
+      <if test="houseC != null" >
+        #{houseC,jdbcType=VARCHAR},
+      </if>
+      <if test="dateobsoleteC != null" >
+        #{dateobsoleteC,jdbcType=VARCHAR},
+      </if>
+      <if test="stagenameC != null" >
+        #{stagenameC,jdbcType=VARCHAR},
+      </if>
+      <if test="createdbyid != null" >
+        #{createdbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnamebC != null" >
+        #{accountnamebC,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptownerC != null" >
+        #{acceptownerC,jdbcType=VARCHAR},
+      </if>
+      <if test="beginningsignC != null" >
+        #{beginningsignC,jdbcType=VARCHAR},
+      </if>
+      <if test="finalagreepriceC != null" >
+        #{finalagreepriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="plannedtimeC != null" >
+        #{plannedtimeC,jdbcType=DATE},
+      </if>
+      <if test="amountpayableC != null" >
+        #{amountpayableC,jdbcType=DOUBLE},
+      </if>
+      <if test="servicesdateC != null" >
+        #{servicesdateC,jdbcType=VARCHAR},
+      </if>
+      <if test="fundstypeC != null" >
+        #{fundstypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="contractawarddateC != null" >
+        #{contractawarddateC,jdbcType=DATE},
+      </if>
+      <if test="servicerecordsdateC != null" >
+        #{servicerecordsdateC,jdbcType=VARCHAR},
+      </if>
+      <if test="transferdateC != null" >
+        #{transferdateC,jdbcType=DATE},
+      </if>
+      <if test="idnumberC != null" >
+        #{idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="salestypeC != null" >
+        #{salestypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="contractnumC != null" >
+        #{contractnumC,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptextenddateC != null" >
+        #{acceptextenddateC,jdbcType=VARCHAR},
+      </if>
+      <if test="accountacceptdateC != null" >
+        #{accountacceptdateC,jdbcType=DATE},
+      </if>
+      <if test="isselfrecommendC != null" >
+        #{isselfrecommendC,jdbcType=BIT},
+      </if>
+      <if test="employeecontractC != null" >
+        #{employeecontractC,jdbcType=VARCHAR},
+      </if>
+      <if test="pplamtC != null" >
+        #{pplamtC,jdbcType=DOUBLE},
+      </if>
+      <if test="acceptownernameC != null" >
+        #{acceptownernameC,jdbcType=VARCHAR},
+      </if>
+      <if test="orderkeyarrayC != null" >
+        #{orderkeyarrayC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleteC != null" >
+        #{isdeleteC,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifieddate != null" >
+        #{lastmodifieddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByGUID" parameterType="com.celnet.dc.domain.PurchaseContract" >
+    update purchasecontract__c
+    <set >
+      <if test="productgroupC != null" >
+        productgroup__c = #{productgroupC,jdbcType=VARCHAR},
+      </if>
+      <if test="salesareatypeC != null" >
+        salesareatype__c = #{salesareatypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="delC != null" >
+        del__c = #{delC,jdbcType=BIT},
+      </if>
+      <if test="depositstatusC != null" >
+        depositstatus__c = #{depositstatusC,jdbcType=VARCHAR},
+      </if>
+      <if test="roomnumberC != null" >
+        roomnumber__c = #{roomnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="payamtC != null" >
+        payamt__c = #{payamtC,jdbcType=DOUBLE},
+      </if>
+      <if test="equityperson5C != null" >
+        equityperson5__c = #{equityperson5C,jdbcType=VARCHAR},
+      </if>
+      <if test="planpossessiondateC != null" >
+        planpossessiondate__c = #{planpossessiondateC,jdbcType=DATE},
+      </if>
+      <if test="contractversionC != null" >
+        contractversion__c = #{contractversionC,jdbcType=VARCHAR},
+      </if>
+      <if test="bwbsC != null" >
+        bwbs__c = #{bwbsC,jdbcType=VARCHAR},
+      </if>
+      <if test="formalconnumberC != null" >
+        formalconnumber__c = #{formalconnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson4idC != null" >
+        equityperson4id__c = #{equityperson4idC,jdbcType=VARCHAR},
+      </if>
+      <if test="unitnameC != null" >
+        unitname__c = #{unitnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null" >
+        sfid = #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="buildcontractC != null" >
+        buildcontract__c = #{buildcontractC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop = #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="proedfinitionC != null" >
+        proedfinition__c = #{proedfinitionC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson1C != null" >
+        equityperson1__c = #{equityperson1C,jdbcType=VARCHAR},
+      </if>
+      <if test="whethergetC != null" >
+        whetherget__c = #{whethergetC,jdbcType=VARCHAR},
+      </if>
+      <if test="salesareaC != null" >
+        salesarea__c = #{salesareaC,jdbcType=DOUBLE},
+      </if>
+      <if test="entrynameC != null" >
+        entryname__c = #{entrynameC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson4C != null" >
+        equityperson4__c = #{equityperson4C,jdbcType=VARCHAR},
+      </if>
+      <if test="contractstatusC != null" >
+        contractstatus__c = #{contractstatusC,jdbcType=VARCHAR},
+      </if>
+      <if test="datesigningC != null" >
+        datesigning__c = #{datesigningC,jdbcType=DATE},
+      </if>
+      <if test="bcamtC != null" >
+        bcamt__c = #{bcamtC,jdbcType=DOUBLE},
+      </if>
+      <if test="buildareaC != null" >
+        buildarea__c = #{buildareaC,jdbcType=DOUBLE},
+      </if>
+      <if test="orderpropertytypeC != null" >
+        orderpropertytype__c = #{orderpropertytypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="unitC != null" >
+        unit__c = #{unitC,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersalesareaC != null" >
+        ordersalesarea__c = #{ordersalesareaC,jdbcType=DOUBLE},
+      </if>
+      <if test="finalareementpriceC != null" >
+        finalareementprice__c = #{finalareementpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="salescountdateC != null" >
+        salescountdate__c = #{salescountdateC,jdbcType=DATE},
+      </if>
+      <if test="followupservicC != null" >
+        followupservic__c = #{followupservicC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        _hc_err = #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="orderroomnumberC != null" >
+        orderroomnumber__c = #{orderroomnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson1idnumberC != null" >
+        equityperson1idnumber__c = #{equityperson1idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersalesmanC != null" >
+        ordersalesman__c = #{ordersalesmanC,jdbcType=VARCHAR},
+      </if>
+      <if test="completiondateC != null" >
+        completiondate__c = #{completiondateC,jdbcType=DATE},
+      </if>
+      <if test="discountrateC != null" >
+        discountrate__c = #{discountrateC,jdbcType=DOUBLE},
+      </if>
+      <if test="paytypeC != null" >
+        paytype__c = #{paytypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="financesigneddateC != null" >
+        financesigneddate__c = #{financesigneddateC,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyapplyC != null" >
+        moneyapply__c = #{moneyapplyC,jdbcType=BIT},
+      </if>
+      <if test="accountidC != null" >
+        accountid__c = #{accountidC,jdbcType=VARCHAR},
+      </if>
+      <if test="salespropertyC != null" >
+        salesproperty__c = #{salespropertyC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="accountkeyidC != null" >
+        accountkeyid__c = #{accountkeyidC,jdbcType=VARCHAR},
+      </if>
+      <if test="salescountdatetimeC != null" >
+        salescountdatetime__c = #{salescountdatetimeC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salesorgC != null" >
+        salesorg__c = #{salesorgC,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnameC != null" >
+        accountname__c = #{accountnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="companycodeC != null" >
+        companycode__c = #{companycodeC,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingC != null" >
+        building__c = #{buildingC,jdbcType=VARCHAR},
+      </if>
+      <if test="depositC != null" >
+        deposit__c = #{depositC,jdbcType=DOUBLE},
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp = #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refencecoinDelC != null" >
+        refencecoin_del__c = #{refencecoinDelC,jdbcType=DOUBLE},
+      </if>
+      <if test="sernrC != null" >
+        sernr__c = #{sernrC,jdbcType=VARCHAR},
+      </if>
+      <if test="paynameC != null" >
+        payname__c = #{paynameC,jdbcType=VARCHAR},
+      </if>
+      <if test="typecontractC != null" >
+        typecontract__c = #{typecontractC,jdbcType=VARCHAR},
+      </if>
+      <if test="servicespeopleC != null" >
+        servicespeople__c = #{servicespeopleC,jdbcType=VARCHAR},
+      </if>
+      <if test="predicttoatalpriceC != null" >
+        predicttoatalprice__c = #{predicttoatalpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="salesdocumentC != null" >
+        salesdocument__c = #{salesdocumentC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson1idC != null" >
+        equityperson1id__c = #{equityperson1idC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson3idnumberC != null" >
+        equityperson3idnumber__c = #{equityperson3idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="tosettleC != null" >
+        tosettle__c = #{tosettleC,jdbcType=BIT},
+      </if>
+      <if test="equityperson1bdkunnrC != null" >
+        equityperson1bdkunnr__c = #{equityperson1bdkunnrC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson3idC != null" >
+        equityperson3id__c = #{equityperson3idC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson3C != null" >
+        equityperson3__c = #{equityperson3C,jdbcType=VARCHAR},
+      </if>
+      <if test="finalpriceC != null" >
+        finalprice__c = #{finalpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="formalordernumC != null" >
+        formalordernum__c = #{formalordernumC,jdbcType=VARCHAR},
+      </if>
+      <if test="frozenstateC != null" >
+        frozenstate__c = #{frozenstateC,jdbcType=VARCHAR},
+      </if>
+      <if test="decorationtypeC != null" >
+        decorationtype__c = #{decorationtypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="agreewithC != null" >
+        agreewith__c = #{agreewithC,jdbcType=BIT},
+      </if>
+      <if test="finaltotalpriceC != null" >
+        finaltotalprice__c = #{finaltotalpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="orderstatusC != null" >
+        orderstatus__c = #{orderstatusC,jdbcType=VARCHAR},
+      </if>
+      <if test="housinginformationC != null" >
+        housinginformation__c = #{housinginformationC,jdbcType=VARCHAR},
+      </if>
+      <if test="equitypersonidC != null" >
+        equitypersonid__c = #{equitypersonidC,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendtypeC != null" >
+        recommendtype__c = #{recommendtypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="alreadycollectionC != null" >
+        alreadycollection__c = #{alreadycollectionC,jdbcType=DOUBLE},
+      </if>
+      <if test="housenameC != null" >
+        housename__c = #{housenameC,jdbcType=VARCHAR},
+      </if>
+      <if test="indoorareaC != null" >
+        indoorarea__c = #{indoorareaC,jdbcType=DOUBLE},
+      </if>
+      <if test="contractawarddate2C != null" >
+        contractawarddate2__c = #{contractawarddate2C,jdbcType=DATE},
+      </if>
+      <if test="initiationcontractC != null" >
+        initiationcontract__c = #{initiationcontractC,jdbcType=BIT},
+      </if>
+      <if test="equityperson4idnumberC != null" >
+        equityperson4idnumber__c = #{equityperson4idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="commonlyphone1C != null" >
+        commonlyphone1__c = #{commonlyphone1C,jdbcType=VARCHAR},
+      </if>
+      <if test="unitpriceC != null" >
+        unitprice__c = #{unitpriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="createddate != null" >
+        createddate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="salesmanC != null" >
+        salesman__c = #{salesmanC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson2C != null" >
+        equityperson2__c = #{equityperson2C,jdbcType=VARCHAR},
+      </if>
+      <if test="commonnotcommonC != null" >
+        commonnotcommon__c = #{commonnotcommonC,jdbcType=VARCHAR},
+      </if>
+      <if test="projectC != null" >
+        project__c = #{projectC,jdbcType=VARCHAR},
+      </if>
+      <if test="equityperson2idnumberC != null" >
+        equityperson2idnumber__c = #{equityperson2idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="unlockdateC != null" >
+        unlockdate__c = #{unlockdateC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="propertytypeC != null" >
+        propertytype__c = #{propertytypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted = #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="ordernumberC != null" >
+        ordernumber__c = #{ordernumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="accountacceptdate2C != null" >
+        accountacceptdate2__c = #{accountacceptdate2C,jdbcType=DATE},
+      </if>
+      <if test="houseC != null" >
+        house__c = #{houseC,jdbcType=VARCHAR},
+      </if>
+      <if test="dateobsoleteC != null" >
+        dateobsolete__c = #{dateobsoleteC,jdbcType=VARCHAR},
+      </if>
+      <if test="stagenameC != null" >
+        stagename__c = #{stagenameC,jdbcType=VARCHAR},
+      </if>
+      <if test="createdbyid != null" >
+        createdbyid = #{createdbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnamebC != null" >
+        accountnameb__c = #{accountnamebC,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptownerC != null" >
+        acceptowner__c = #{acceptownerC,jdbcType=VARCHAR},
+      </if>
+      <if test="beginningsignC != null" >
+        beginningsign__c = #{beginningsignC,jdbcType=VARCHAR},
+      </if>
+      <if test="finalagreepriceC != null" >
+        finalagreeprice__c = #{finalagreepriceC,jdbcType=DOUBLE},
+      </if>
+      <if test="plannedtimeC != null" >
+        plannedtime__c = #{plannedtimeC,jdbcType=DATE},
+      </if>
+      <if test="amountpayableC != null" >
+        amountpayable__c = #{amountpayableC,jdbcType=DOUBLE},
+      </if>
+      <if test="servicesdateC != null" >
+        servicesdate__c = #{servicesdateC,jdbcType=VARCHAR},
+      </if>
+      <if test="fundstypeC != null" >
+        fundstype__c = #{fundstypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="contractawarddateC != null" >
+        contractawarddate__c = #{contractawarddateC,jdbcType=DATE},
+      </if>
+      <if test="servicerecordsdateC != null" >
+        servicerecordsdate__c = #{servicerecordsdateC,jdbcType=VARCHAR},
+      </if>
+      <if test="transferdateC != null" >
+        transferdate__c = #{transferdateC,jdbcType=DATE},
+      </if>
+      <if test="idnumberC != null" >
+        idnumber__c = #{idnumberC,jdbcType=VARCHAR},
+      </if>
+      <if test="salestypeC != null" >
+        salestype__c = #{salestypeC,jdbcType=VARCHAR},
+      </if>
+      <if test="contractnumC != null" >
+        contractnum__c = #{contractnumC,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptextenddateC != null" >
+        acceptextenddate__c = #{acceptextenddateC,jdbcType=VARCHAR},
+      </if>
+      <if test="accountacceptdateC != null" >
+        accountacceptdate__c = #{accountacceptdateC,jdbcType=DATE},
+      </if>
+      <if test="isselfrecommendC != null" >
+        isselfrecommend__c = #{isselfrecommendC,jdbcType=BIT},
+      </if>
+      <if test="employeecontractC != null" >
+        employeecontract__c = #{employeecontractC,jdbcType=VARCHAR},
+      </if>
+      <if test="pplamtC != null" >
+        pplamt__c = #{pplamtC,jdbcType=DOUBLE},
+      </if>
+      <if test="acceptownernameC != null" >
+        acceptownername__c = #{acceptownernameC,jdbcType=VARCHAR},
+      </if>
+      <if test="orderkeyarrayC != null" >
+        orderkeyarray__c = #{orderkeyarrayC,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleteC != null" >
+        isdelete__c = #{isdeleteC,jdbcType=VARCHAR},
+      </if>
+      <if test="lastmodifieddate != null" >
+        lastmodifieddate = #{lastmodifieddate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+ 
+ <select id="getHouseSfid" resultType="java.lang.String" parameterType="java.lang.String">
+ 	select a.house__c 
+ 	from purchasecontract__c a 
+	join complaintsadvice__c b
+	on b.housinginfor__c = a.sfid
+	where b.sfid = #{sfid}
+ </select>
+ 
+</mapper>

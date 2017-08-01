@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.celnet.dc.dao.ComplaintsAdviceCMapper">
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.ComplaintsAdviceC">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="acceptancetime__c" jdbcType="TIMESTAMP" property="acceptancetimeC" />
+    <result column="customername__c" jdbcType="VARCHAR" property="customernameC" />
+    <result column="completiontime__c" jdbcType="TIMESTAMP" property="completiontimeC" />
+    <result column="_hc_err" jdbcType="VARCHAR" property="hcErr" />
+    <result column="owner__c" jdbcType="VARCHAR" property="ownerC" />
+    <result column="callerid__c" jdbcType="VARCHAR" property="calleridC" />
+    <result column="occurtime__c" jdbcType="TIMESTAMP" property="occurtimeC" />
+    <result column="lastmodifieddate" jdbcType="TIMESTAMP" property="lastmodifieddate" />
+    <result column="_hc_lastop" jdbcType="VARCHAR" property="hcLastop" />
+    <result column="isdeleted" jdbcType="BIT" property="isdeleted" />
+    <result column="systemmodstamp" jdbcType="TIMESTAMP" property="systemmodstamp" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="createddate" jdbcType="TIMESTAMP" property="createddate" />
+    <result column="sfid" jdbcType="VARCHAR" property="sfid" />
+    <result column="propertyprocessinginformation__c" jdbcType="VARCHAR" property="propertyprocessinginformationC" />
+    <result column="publicarea__c" jdbcType="BIT" property="publicareaC" />
+    <result column="maintenanceprocessinginformation__c" jdbcType="VARCHAR" property="maintenanceprocessinginformationC" />
+    <result column="sendbusinesstype__c" jdbcType="VARCHAR" property="sendbusinesstypeC" />
+    <result column="distributionstatus__c" jdbcType="VARCHAR" property="distributionstatusC" />
+    <result column="receiverphone__c" jdbcType="VARCHAR" property="receiverphoneC" />
+    <result column="receiver__c" jdbcType="VARCHAR" property="receiverC" />
+    <result column="returnreason__c" jdbcType="VARCHAR" property="returnreasonC" />
+    <result column="eventproperties__c" jdbcType="VARCHAR" property="eventpropertiesC" />
+    <result column="eventclassification__c" jdbcType="VARCHAR" property="eventclassificationC" />
+    <result column="housinginfor__c" jdbcType="VARCHAR" property="housinginforC" />
+    <result column="projectname__c" jdbcType="VARCHAR" property="projectnameC" />
+    <result column="propertyid__c" jdbcType="VARCHAR" property="propertyidC" />
+    <result column="createdbyid" jdbcType="VARCHAR" property="createdbyid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, acceptancetime__c, customername__c, completiontime__c, _hc_err, owner__c, callerid__c, 
+    occurtime__c, lastmodifieddate, _hc_lastop, isdeleted, systemmodstamp, name, createddate, 
+    sfid, propertyprocessinginformation__c, publicarea__c, maintenanceprocessinginformation__c, 
+    sendbusinesstype__c, distributionstatus__c, receiverphone__c, receiver__c, returnreason__c, 
+    eventproperties__c, eventclassification__c, housinginfor__c, projectname__c, propertyid__c,
+    createdbyid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from complaintsadvice__c
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+	<select id="selectData" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from complaintsadvice__c
+		where sfid = 'a072800000B4vx5AAB'
+	</select>
+	
+   <update id="updateWoId" parameterType="com.celnet.dc.domain.ComplaintsAdviceC" >
+    update complaintsadvice__c
+    <set >
+      <if test="propertyidC != null" >
+        propertyid__c = #{propertyidC,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sfid = #{sfid,jdbcType=VARCHAR}
+
+   </update>
+
+</mapper>
