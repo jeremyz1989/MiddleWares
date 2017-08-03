@@ -28,6 +28,7 @@ import com.celnet.dc.common.util.StringUtil;
 import com.celnet.dc.domain.ComplaintsAdviceC;
 import com.celnet.dc.domain.api.response.OrderResponseJson;
 import com.celnet.dc.service.AccountService;
+import com.celnet.dc.service.ComplaintAdviceService;
 import com.celnet.dc.service.PurchaseContractService;
 
 import io.swagger.annotations.Api;
@@ -49,6 +50,9 @@ public class OrderCreateController {
 	
 	@Autowired
 	private AccountService accountService;
+	
+	@Autowired
+	private ComplaintAdviceService complaintAdviceService;
 	
 	public void createOrderList(List<ComplaintsAdviceC> list){
 		Set<String> set = new HashSet<String>();
@@ -170,6 +174,8 @@ public class OrderCreateController {
 			//将工单id更新到本地投诉建议表
 			ComplaintsAdviceC complaint = new ComplaintsAdviceC();
 			complaint.setPropertyidC(order.getWoId());
+			complaint.setSfid(order.getWorkOrderSFID());
+			complaintAdviceService.updateWoId(complaint);
 			System.out.println("工单id" + order.getWoId());
 		}
 		}catch (JSONException e){

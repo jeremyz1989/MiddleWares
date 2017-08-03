@@ -19,12 +19,12 @@ public class QuartzConfig implements ApplicationListener<ContextRefreshedEvent> 
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		try {
-			//myScheduler.addQuartz01(scheduler());//添加第1个定时任务
-			myScheduler.addQuartz03(scheduler());//添加第2个定时任务
-		} catch (SchedulerException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			//myScheduler.addQuartz01(scheduler());//添加第1个定时任务
+//			myScheduler.addQuartz03(scheduler());//添加第2个定时任务
+//		} catch (SchedulerException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	@Bean

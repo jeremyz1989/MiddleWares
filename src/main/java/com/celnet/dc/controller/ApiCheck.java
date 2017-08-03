@@ -1,30 +1,33 @@
 package com.celnet.dc.controller;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.util.Arrays;
 
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import com.alibaba.fastjson.JSONObject;
+
+import org.apache.commons.io.IOUtils; 
+
 
 @Aspect
 @Component
 public class ApiCheck {
-
+	
 	/**
      * 1、callin，header验证
      * 2、callout，header加密
@@ -42,6 +45,7 @@ public class ApiCheck {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         
+        
         System.out.println("请求地址 : " + request.getRequestURL().toString());
         System.out.println("HTTP METHOD : " + request.getMethod());
         System.out.println("IP : " + request.getRemoteAddr());
@@ -58,5 +62,6 @@ public class ApiCheck {
     	System.out.println("结束时间：" + System.currentTimeMillis());
     	System.out.println("RESPONSE : " + ret);
     }
+    
     
 }
