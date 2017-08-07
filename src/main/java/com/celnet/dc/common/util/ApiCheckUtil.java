@@ -1,0 +1,7 @@
+package com.celnet.dc.common.util;
+
+/**
+ * Created by HONGYI_ZHENG on 2017/8/3.
+ */
+public class ApiCheckUtil {
+}

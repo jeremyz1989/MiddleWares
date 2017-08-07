@@ -12,4 +12,7 @@ public interface AccountSourceMapper {
 	List<AccountSource> getAccount(@Param("id") String id);
 	
 	List<AccountSource> getAccountNew();
+
+	List<AccountSource> getAccountByParam(String param);
+
 }

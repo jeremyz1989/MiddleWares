@@ -21,5 +21,19 @@ public class AccountSourceServiceImpl implements AccountSourceService{
 		return list;
 	}
 
-	
+	@Override
+	public boolean getAccountByParam(String param) {
+
+		List<AccountSource> list = accountSourceMapper.getAccountByParam(param);
+		//如果数据库有匹配的账户，则返回true，否则返回false
+		return list.size()>0?true:false;
+	}
+
+	@Override
+	public List<AccountSource> queryAccountByUserName(String username) {
+		List<AccountSource> list = accountSourceMapper.getAccountByParam(username);
+		return list;
+	}
+
+
 }

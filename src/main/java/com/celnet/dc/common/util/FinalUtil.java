@@ -38,11 +38,20 @@ public class FinalUtil {
 		map.put(API_ERROR_CODE_1019, API_ERROR_MSG_1019); // 非法请求时间戳
 		map.put(API_ERROR_CODE_1020, API_ERROR_MSG_1020); // 接口未启用
 		map.put(API_ERROR_CODE_1021, API_ERROR_MSG_1021); // 未找到接口处理器
+		map.put(API_ERROR_CODE_1022, API_ERROR_MSG_1022); // 请求参数错误
+
+
 		map.put(API_ERROR_CODE_2001, API_ERROR_MSG_2001); // 客户不存在
 		map.put(API_ERROR_CODE_2002, API_ERROR_MSG_2002); // 客户手机号填写错误
 		map.put(API_ERROR_CODE_2003, API_ERROR_MSG_2003); // 客户证件号填写错误
 		map.put(API_ERROR_CODE_2004, API_ERROR_MSG_2004); // 客户姓名填写错误
 		map.put(API_ERROR_CODE_2005, API_ERROR_MSG_2005); // 存在多个客户
+		map.put(API_ERROR_CODE_2006, API_ERROR_MSG_2006); // 该用户名已被注册！
+		map.put(API_ERROR_CODE_2007, API_ERROR_MSG_2007); // 该用户名可以使用！
+		map.put(API_ERROR_CODE_2008, API_ERROR_MSG_2008); // 手机号输入不正确！
+		map.put(API_ERROR_CODE_2009, API_ERROR_MSG_2009); // 密码错误，请重新输入！
+
+
 		map.put(API_ERROR_CODE_4001, API_ERROR_MSG_4001); // 项目不存在
 		map.put(API_ERROR_CODE_4002, API_ERROR_MSG_4002); // 地块不存在
 		map.put(API_ERROR_CODE_4003, API_ERROR_MSG_4003); // 分期不存在
@@ -156,6 +165,9 @@ public class FinalUtil {
 
 	public static final String API_ERROR_CODE_1021 = "1021";
 	public static final String API_ERROR_MSG_1021 = "未找到接口处理器";
+
+	public static final String API_ERROR_CODE_1022 = "1022";
+	public static final String API_ERROR_MSG_1022 = "请求参数错误";
 	// *******error系统错误码 Final end***************************************
 
 	// *******error客户类错误码 Final star***************************************
@@ -173,6 +185,18 @@ public class FinalUtil {
 	
 	public static final String API_ERROR_CODE_2005 = "2005";
 	public static final String API_ERROR_MSG_2005 = "存在多个客户";
+
+	public static final String API_ERROR_CODE_2006 = "2006";
+	public static final String API_ERROR_MSG_2006 = "该用户名已被注册！";
+
+	public static final String API_ERROR_CODE_2007 = "2007";
+	public static final String API_ERROR_MSG_2007 = "该用户名可以使用！";
+
+	public static final String API_ERROR_CODE_2008 = "2008";
+	public static final String API_ERROR_MSG_2008 = "手机号输入不正确！";
+
+	public static final String API_ERROR_CODE_2009 = "2009";
+	public static final String API_ERROR_MSG_2009 = "密码错误，请重新输入！";
 	// *******error客户类错误码 Final end***************************************
 
 	// *******error基础数据类错误码 Final star**************************************

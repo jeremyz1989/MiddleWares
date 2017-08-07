@@ -6,5 +6,9 @@ import com.celnet.dc.domain.AccountSource;
 public interface AccountSourceService {
 
 	List<AccountSource> getAccount();
+
+	boolean getAccountByParam(String param);
+
+	List<AccountSource> queryAccountByUserName(String username);
 	
 }

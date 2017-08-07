@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.celnet.dc.dao.AccountSourceMapper" >
-  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.AccountSource" > 
-    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
-    <result column="pendingapprovalsmb__c" property="pendingapprovalsmb" jdbcType="DOUBLE" />
-    <result column="totalsmb__c" property="totalsmb" jdbcType="DOUBLE" />
-    <result column="availablesmb__c" property="availablesmb" jdbcType="DOUBLE" />
-    <result column="exchangedsmb__c" property="exchangedsmb" jdbcType="DOUBLE" />
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.AccountSource" >
     <result column="gender__c" property="genderC" jdbcType="VARCHAR" />
     <result column="_hc_lastop" property="hcLastop" jdbcType="VARCHAR" />
     <result column="isdeleted" property="isdeleted" jdbcType="BIT" />
     <result column="namefield__c" property="namefieldC" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="permanentaddress__c" property="permanentaddressC" jdbcType="VARCHAR" />
     <result column="contactaddress__c" property="contactaddressC" jdbcType="VARCHAR" />
+    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
     <result column="clubregisteredphone__c" property="clubregisteredphoneC" jdbcType="VARCHAR" />
     <result column="contractstatus__c" property="contractstatusC" jdbcType="VARCHAR" />
     <result column="id" property="id" jdbcType="INTEGER" />
@@ -27,31 +22,378 @@
     <result column="email__c" property="emailC" jdbcType="VARCHAR" />
     <result column="datebirth__c" property="datebirthC" jdbcType="VARCHAR" />
     <result column="commonlyphone__c" property="commonlyphoneC" jdbcType="VARCHAR" />
-    <result column="isdelete__c" property="isdeleteC" jdbcType="BIT" />
-    <result column="guid" property="guid" jdbcType="VARCHAR" />
     <result column="grantingsmbcontractcount__c" property="grantingsmbcontractcountC" jdbcType="DOUBLE" />
     <result column="accountsource" property="accountsource" jdbcType="VARCHAR" />
- 
+    <result column="pendingapprovalsmb__c" property="pendingapprovalsmbC" jdbcType="DOUBLE" />
+    <result column="totalsmb__c" property="totalsmbC" jdbcType="DOUBLE" />
+    <result column="availablesmb__c" property="availablesmbC" jdbcType="DOUBLE" />
+    <result column="exchangedsmb__c" property="exchangedsmbC" jdbcType="DOUBLE" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="isdelete__c" property="isdeleteC" jdbcType="BIT" />
+    <result column="spare_commonlyphone__c" property="spareCommonlyphoneC" jdbcType="VARCHAR" />
+    <result column="spare_clubregisteredphone__c" property="spareClubregisteredphoneC" jdbcType="VARCHAR" />
+    <result column="purchasecontract_new__c" property="purchasecontractNewC" jdbcType="TIMESTAMP" />
+    <result column="complaintsadvice_new__c" property="complaintsadviceNewC" jdbcType="TIMESTAMP" />
+    <result column="spare_bahns__c" property="spareBahnsC" jdbcType="VARCHAR" />
+    <result column="productorder_new__c" property="productorderNewC" jdbcType="TIMESTAMP" />
+    <result column="clubuser__c" property="clubuserC" jdbcType="VARCHAR" />
+    <result column="createdbyid" property="createdbyid" jdbcType="VARCHAR" />
+    <result column="clubemail__c" property="clubemailC" jdbcType="VARCHAR" />
+    <result column="shippingaddress__c" property="shippingaddressC" jdbcType="VARCHAR" />
+    <result column="housing__c" property="housingC" jdbcType="BIT" />
+    <result column="cusid__c" property="cusidC" jdbcType="VARCHAR" />
+    <result column="whetherbind__c" property="whetherbindC" jdbcType="VARCHAR" />
+    <result column="initiationtime__c" property="initiationtimeC" jdbcType="DATE" />
+    <result column="clubpassword__c" property="clubpasswordC" jdbcType="VARCHAR" />
+    <result column="wechatname__c" property="wechatnameC" jdbcType="VARCHAR" />
+    <result column="area__c" property="areaC" jdbcType="VARCHAR" />
+    <result column="recommendfreeze__c" property="recommendfreezeC" jdbcType="BIT" />
+    <result column="clubpasswordtext__c" property="clubpasswordtextC" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List" > 
-    sfid, pendingapprovalsmb__c,totalsmb__c,availablesmb__c,exchangedsmb__c,gender__c,_hc_lastop,isdeleted,namefield__c,
-    name,permanentaddress__c,contactaddress__c,clubregisteredphone__c,contractstatus__c,id,masterrecordid,createddate,
-    nameandbahns__c,bahns__c,_hc_err,shimaoyezhu__c,systemmodstamp,email__c,datebirth__c,commonlyphone__c,isdelete__c,
-    guid,grantingsmbcontractcount__c,accountsource
-  </sql>
-  <select id="getAccount" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from accountsource
-    where sfid = #{id}
-  </select>
-  
+
+  <insert id="insert" parameterType="com.celnet.dc.domain.AccountSource" >
+    insert into accountsource (gender__c, _hc_lastop, isdeleted,
+    namefield__c, name, contactaddress__c,
+    sfid, clubregisteredphone__c, contractstatus__c,
+    id, masterrecordid, createddate,
+    nameandbahns__c, bahns__c, _hc_err,
+    shimaoyezhu__c, systemmodstamp, email__c,
+    datebirth__c, commonlyphone__c, grantingsmbcontractcount__c,
+    accountsource, pendingapprovalsmb__c, totalsmb__c,
+    availablesmb__c, exchangedsmb__c, phone,
+    isdelete__c, spare_commonlyphone__c, spare_clubregisteredphone__c,
+    purchasecontract_new__c, complaintsadvice_new__c,
+    spare_bahns__c, productorder_new__c, clubuser__c,
+    createdbyid, clubemail__c, shippingaddress__c,
+    housing__c, cusid__c, whetherbind__c,
+    initiationtime__c, clubpassword__c, wechatname__c,
+    area__c, recommendfreeze__c, clubpasswordtext__c
+    )
+    values (#{genderC,jdbcType=VARCHAR}, #{hcLastop,jdbcType=VARCHAR}, #{isdeleted,jdbcType=BIT},
+    #{namefieldC,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{contactaddressC,jdbcType=VARCHAR},
+    #{sfid,jdbcType=VARCHAR}, #{clubregisteredphoneC,jdbcType=VARCHAR}, #{contractstatusC,jdbcType=VARCHAR},
+    #{id,jdbcType=INTEGER}, #{masterrecordid,jdbcType=VARCHAR}, #{createddate,jdbcType=TIMESTAMP},
+    #{nameandbahnsC,jdbcType=VARCHAR}, #{bahnsC,jdbcType=VARCHAR}, #{hcErr,jdbcType=VARCHAR},
+    #{shimaoyezhuC,jdbcType=BIT}, #{systemmodstamp,jdbcType=TIMESTAMP}, #{emailC,jdbcType=VARCHAR},
+    #{datebirthC,jdbcType=VARCHAR}, #{commonlyphoneC,jdbcType=VARCHAR}, #{grantingsmbcontractcountC,jdbcType=DOUBLE},
+    #{accountsource,jdbcType=VARCHAR}, #{pendingapprovalsmbC,jdbcType=DOUBLE}, #{totalsmbC,jdbcType=DOUBLE},
+    #{availablesmbC,jdbcType=DOUBLE}, #{exchangedsmbC,jdbcType=DOUBLE}, #{phone,jdbcType=VARCHAR},
+    #{isdeleteC,jdbcType=BIT}, #{spareCommonlyphoneC,jdbcType=VARCHAR}, #{spareClubregisteredphoneC,jdbcType=VARCHAR},
+    #{purchasecontractNewC,jdbcType=TIMESTAMP}, #{complaintsadviceNewC,jdbcType=TIMESTAMP},
+    #{spareBahnsC,jdbcType=VARCHAR}, #{productorderNewC,jdbcType=TIMESTAMP}, #{clubuserC,jdbcType=VARCHAR},
+    #{createdbyid,jdbcType=VARCHAR}, #{clubemailC,jdbcType=VARCHAR}, #{shippingaddressC,jdbcType=VARCHAR},
+    #{housingC,jdbcType=BIT}, #{cusidC,jdbcType=VARCHAR}, #{whetherbindC,jdbcType=VARCHAR},
+    #{initiationtimeC,jdbcType=DATE}, #{clubpasswordC,jdbcType=VARCHAR}, #{wechatnameC,jdbcType=VARCHAR},
+    #{areaC,jdbcType=VARCHAR}, #{recommendfreezeC,jdbcType=BIT}, #{clubpasswordtextC,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="com.celnet.dc.domain.AccountSource" >
+    insert into accountsource
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="genderC != null" >
+        gender__c,
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop,
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted,
+      </if>
+      <if test="namefieldC != null" >
+        namefield__c,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="contactaddressC != null" >
+        contactaddress__c,
+      </if>
+      <if test="sfid != null" >
+        sfid,
+      </if>
+      <if test="clubregisteredphoneC != null" >
+        clubregisteredphone__c,
+      </if>
+      <if test="contractstatusC != null" >
+        contractstatus__c,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="masterrecordid != null" >
+        masterrecordid,
+      </if>
+      <if test="createddate != null" >
+        createddate,
+      </if>
+      <if test="nameandbahnsC != null" >
+        nameandbahns__c,
+      </if>
+      <if test="bahnsC != null" >
+        bahns__c,
+      </if>
+      <if test="hcErr != null" >
+        _hc_err,
+      </if>
+      <if test="shimaoyezhuC != null" >
+        shimaoyezhu__c,
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp,
+      </if>
+      <if test="emailC != null" >
+        email__c,
+      </if>
+      <if test="datebirthC != null" >
+        datebirth__c,
+      </if>
+      <if test="commonlyphoneC != null" >
+        commonlyphone__c,
+      </if>
+      <if test="grantingsmbcontractcountC != null" >
+        grantingsmbcontractcount__c,
+      </if>
+      <if test="accountsource != null" >
+        accountsource,
+      </if>
+      <if test="pendingapprovalsmbC != null" >
+        pendingapprovalsmb__c,
+      </if>
+      <if test="totalsmbC != null" >
+        totalsmb__c,
+      </if>
+      <if test="availablesmbC != null" >
+        availablesmb__c,
+      </if>
+      <if test="exchangedsmbC != null" >
+        exchangedsmb__c,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="isdeleteC != null" >
+        isdelete__c,
+      </if>
+      <if test="spareCommonlyphoneC != null" >
+        spare_commonlyphone__c,
+      </if>
+      <if test="spareClubregisteredphoneC != null" >
+        spare_clubregisteredphone__c,
+      </if>
+      <if test="purchasecontractNewC != null" >
+        purchasecontract_new__c,
+      </if>
+      <if test="complaintsadviceNewC != null" >
+        complaintsadvice_new__c,
+      </if>
+      <if test="spareBahnsC != null" >
+        spare_bahns__c,
+      </if>
+      <if test="productorderNewC != null" >
+        productorder_new__c,
+      </if>
+      <if test="clubuserC != null" >
+        clubuser__c,
+      </if>
+      <if test="createdbyid != null" >
+        createdbyid,
+      </if>
+      <if test="clubemailC != null" >
+        clubemail__c,
+      </if>
+      <if test="shippingaddressC != null" >
+        shippingaddress__c,
+      </if>
+      <if test="housingC != null" >
+        housing__c,
+      </if>
+      <if test="cusidC != null" >
+        cusid__c,
+      </if>
+      <if test="whetherbindC != null" >
+        whetherbind__c,
+      </if>
+      <if test="initiationtimeC != null" >
+        initiationtime__c,
+      </if>
+      <if test="clubpasswordC != null" >
+        clubpassword__c,
+      </if>
+      <if test="wechatnameC != null" >
+        wechatname__c,
+      </if>
+      <if test="areaC != null" >
+        area__c,
+      </if>
+      <if test="recommendfreezeC != null" >
+        recommendfreeze__c,
+      </if>
+      <if test="clubpasswordtextC != null" >
+        clubpasswordtext__c,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="genderC != null" >
+        #{genderC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        #{hcLastop,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="namefieldC != null" >
+        #{namefieldC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="contactaddressC != null" >
+        #{contactaddressC,jdbcType=VARCHAR},
+      </if>
+      <if test="sfid != null" >
+        #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="clubregisteredphoneC != null" >
+        #{clubregisteredphoneC,jdbcType=VARCHAR},
+      </if>
+      <if test="contractstatusC != null" >
+        #{contractstatusC,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="masterrecordid != null" >
+        #{masterrecordid,jdbcType=VARCHAR},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nameandbahnsC != null" >
+        #{nameandbahnsC,jdbcType=VARCHAR},
+      </if>
+      <if test="bahnsC != null" >
+        #{bahnsC,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="shimaoyezhuC != null" >
+        #{shimaoyezhuC,jdbcType=BIT},
+      </if>
+      <if test="systemmodstamp != null" >
+        #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="emailC != null" >
+        #{emailC,jdbcType=VARCHAR},
+      </if>
+      <if test="datebirthC != null" >
+        #{datebirthC,jdbcType=VARCHAR},
+      </if>
+      <if test="commonlyphoneC != null" >
+        #{commonlyphoneC,jdbcType=VARCHAR},
+      </if>
+      <if test="grantingsmbcontractcountC != null" >
+        #{grantingsmbcontractcountC,jdbcType=DOUBLE},
+      </if>
+      <if test="accountsource != null" >
+        #{accountsource,jdbcType=VARCHAR},
+      </if>
+      <if test="pendingapprovalsmbC != null" >
+        #{pendingapprovalsmbC,jdbcType=DOUBLE},
+      </if>
+      <if test="totalsmbC != null" >
+        #{totalsmbC,jdbcType=DOUBLE},
+      </if>
+      <if test="availablesmbC != null" >
+        #{availablesmbC,jdbcType=DOUBLE},
+      </if>
+      <if test="exchangedsmbC != null" >
+        #{exchangedsmbC,jdbcType=DOUBLE},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="isdeleteC != null" >
+        #{isdeleteC,jdbcType=BIT},
+      </if>
+      <if test="spareCommonlyphoneC != null" >
+        #{spareCommonlyphoneC,jdbcType=VARCHAR},
+      </if>
+      <if test="spareClubregisteredphoneC != null" >
+        #{spareClubregisteredphoneC,jdbcType=VARCHAR},
+      </if>
+      <if test="purchasecontractNewC != null" >
+        #{purchasecontractNewC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="complaintsadviceNewC != null" >
+        #{complaintsadviceNewC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spareBahnsC != null" >
+        #{spareBahnsC,jdbcType=VARCHAR},
+      </if>
+      <if test="productorderNewC != null" >
+        #{productorderNewC,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clubuserC != null" >
+        #{clubuserC,jdbcType=VARCHAR},
+      </if>
+      <if test="createdbyid != null" >
+        #{createdbyid,jdbcType=VARCHAR},
+      </if>
+      <if test="clubemailC != null" >
+        #{clubemailC,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingaddressC != null" >
+        #{shippingaddressC,jdbcType=VARCHAR},
+      </if>
+      <if test="housingC != null" >
+        #{housingC,jdbcType=BIT},
+      </if>
+      <if test="cusidC != null" >
+        #{cusidC,jdbcType=VARCHAR},
+      </if>
+      <if test="whetherbindC != null" >
+        #{whetherbindC,jdbcType=VARCHAR},
+      </if>
+      <if test="initiationtimeC != null" >
+        #{initiationtimeC,jdbcType=DATE},
+      </if>
+      <if test="clubpasswordC != null" >
+        #{clubpasswordC,jdbcType=VARCHAR},
+      </if>
+      <if test="wechatnameC != null" >
+        #{wechatnameC,jdbcType=VARCHAR},
+      </if>
+      <if test="areaC != null" >
+        #{areaC,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendfreezeC != null" >
+        #{recommendfreezeC,jdbcType=BIT},
+      </if>
+      <if test="clubpasswordtextC != null" >
+        #{clubpasswordtextC,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
   <select id="getAccountNew" resultMap="BaseResultMap" >
-  	select sfid,name,clubregisteredphone__c,bahns__c
-  	from accountsource
-  	where sfid in 
-  	(select customer__c from customerhousebinding__c where systemmodstamp > (select value__c from systemparamter__c where name = 'account_update')::TIMESTAMP)
-  	<!-- select * from customerhousebinding__c where systemmodstamp > (select value__c from systemparamter__c where name = 'account_update')::TIMESTAMP -->
+    select sfid,name,clubregisteredphone__c,bahns__c
+    from accountsource
+    where sfid in
+    (select customer__c from customerhousebinding__c where systemmodstamp > (select value__c from systemparamter__c where name = 'account_update')::TIMESTAMP)
+    <!-- select * from customerhousebinding__c where systemmodstamp > (select value__c from systemparamter__c where name = 'account_update')::TIMESTAMP -->
   </select>
-  
+
+  <select id="getAccountByParam" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+      *
+    FROM
+      accountsource
+    WHERE
+      clubuser__c = #{param}
+    OR
+      clubRegisteredPhone__c =#{param}
+  </select>
+
 </mapper>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.celnet.dc.dao.WeChatFollowerMapper" >
+  <resultMap id="BaseResultMap" type="com.celnet.dc.domain.WeChatFollower" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="createddate" property="createddate" jdbcType="TIMESTAMP" />
+    <result column="isdeleted" property="isdeleted" jdbcType="BIT" />
+    <result column="account__c" property="accountC" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="systemmodstamp" property="systemmodstamp" jdbcType="TIMESTAMP" />
+    <result column="sfid" property="sfid" jdbcType="VARCHAR" />
+    <result column="_hc_err" property="hcErr" jdbcType="VARCHAR" />
+    <result column="_hc_lastop" property="hcLastop" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, createddate, isdeleted, account__c, name, systemmodstamp, sfid, _hc_err, _hc_lastop
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wechat_follower__c
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wechat_follower__c
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.celnet.dc.domain.WeChatFollower" >
+    insert into wechat_follower__c (id, createddate, isdeleted, 
+      account__c, name, systemmodstamp, 
+      sfid, _hc_err, _hc_lastop
+      )
+    values (#{id,jdbcType=INTEGER}, #{createddate,jdbcType=TIMESTAMP}, #{isdeleted,jdbcType=BIT}, 
+      #{accountC,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{systemmodstamp,jdbcType=TIMESTAMP}, 
+      #{sfid,jdbcType=VARCHAR}, #{hcErr,jdbcType=VARCHAR}, #{hcLastop,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.celnet.dc.domain.WeChatFollower" >
+    insert into wechat_follower__c
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createddate != null" >
+        createddate,
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted,
+      </if>
+      <if test="accountC != null" >
+        account__c,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp,
+      </if>
+      <if test="sfid != null" >
+        sfid,
+      </if>
+      <if test="hcErr != null" >
+        _hc_err,
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createddate != null" >
+        #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdeleted != null" >
+        #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="accountC != null" >
+        #{accountC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null" >
+        #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sfid != null" >
+        #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        #{hcLastop,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.celnet.dc.domain.WeChatFollower" >
+    update wechat_follower__c
+    <set >
+      <if test="createddate != null" >
+        createddate = #{createddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdeleted != null" >
+        isdeleted = #{isdeleted,jdbcType=BIT},
+      </if>
+      <if test="accountC != null" >
+        account__c = #{accountC,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="systemmodstamp != null" >
+        systemmodstamp = #{systemmodstamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sfid != null" >
+        sfid = #{sfid,jdbcType=VARCHAR},
+      </if>
+      <if test="hcErr != null" >
+        _hc_err = #{hcErr,jdbcType=VARCHAR},
+      </if>
+      <if test="hcLastop != null" >
+        _hc_lastop = #{hcLastop,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.celnet.dc.domain.WeChatFollower" >
+    update wechat_follower__c
+    set createddate = #{createddate,jdbcType=TIMESTAMP},
+      isdeleted = #{isdeleted,jdbcType=BIT},
+      account__c = #{accountC,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      systemmodstamp = #{systemmodstamp,jdbcType=TIMESTAMP},
+      sfid = #{sfid,jdbcType=VARCHAR},
+      _hc_err = #{hcErr,jdbcType=VARCHAR},
+      _hc_lastop = #{hcLastop,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

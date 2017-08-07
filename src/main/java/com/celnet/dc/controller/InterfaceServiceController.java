@@ -117,10 +117,10 @@ public class InterfaceServiceController extends ApiServiceController{
 	          for(AccountSource obj1:list)
 	          {
 	              Map<String,String> map = new HashMap<String,String>();
-	              map.put("totalSMB", String.valueOf(obj1.getTotalsmb()));
-	              map.put("pendingapprovalsmb", String.valueOf(obj1.getPendingapprovalsmb()));
-	              map.put("availablesmb", String.valueOf(obj1.getAvailablesmb()));
-	              map.put("exchangedsmb", String.valueOf(obj1.getExchangedsmb()));
+	              map.put("totalSMB", String.valueOf(obj1.getTotalsmbC()));
+	              map.put("pendingapprovalsmb", String.valueOf(obj1.getPendingapprovalsmbC()));
+	              map.put("availablesmb", String.valueOf(obj1.getAvailablesmbC()));
+	              map.put("exchangedsmb", String.valueOf(obj1.getExchangedsmbC()));
 	        	  list1.add(map);
 	          }
 				result=new ResponseJson(FinalUtil.API_ERROR_CODE_0,FinalUtil.getErrorMsg(FinalUtil.API_ERROR_CODE_0),list1);

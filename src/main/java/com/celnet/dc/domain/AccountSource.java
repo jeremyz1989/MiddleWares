@@ -13,8 +13,6 @@ public class AccountSource {
 
     private String name;
 
-    private String permanentaddressC;
-
     private String contactaddressC;
 
     private String sfid;
@@ -45,79 +43,61 @@ public class AccountSource {
 
     private String commonlyphoneC;
 
-    private Boolean isdeleteC;
-
-    private String guid;
-    
-    private Double pendingapprovalsmb;
-    
-    private Double totalsmb;
-    
-    private Double availablesmb;
-    
-    private Double exchangedsmb;
-    
-    private String accountsource;
-    
     private Double grantingsmbcontractcountC;
 
-    public Boolean getIsdeleteC() {
-		return isdeleteC;
-	}
+    private String accountsource;
 
-	public void setIsdeleteC(Boolean isdeleteC) {
-		this.isdeleteC = isdeleteC;
-	}
+    private Double pendingapprovalsmbC;
 
-	public String getAccountsource() {
-		return accountsource;
-	}
+    private Double totalsmbC;
 
-	public void setAccountsource(String accountsource) {
-		this.accountsource = accountsource;
-	}
+    private Double availablesmbC;
 
-	public Double getGrantingsmbcontractcountC() {
-		return grantingsmbcontractcountC;
-	}
+    private Double exchangedsmbC;
 
-	public void setGrantingsmbcontractcountC(Double grantingsmbcontractcountC) {
-		this.grantingsmbcontractcountC = grantingsmbcontractcountC;
-	}
+    private String phone;
 
-	public Double getPendingapprovalsmb() {
-		return pendingapprovalsmb;
-	}
+    private Boolean isdeleteC;
 
-	public void setPendingapprovalsmb(Double pendingapprovalsmb) {
-		this.pendingapprovalsmb = pendingapprovalsmb;
-	}
+    private String spareCommonlyphoneC;
 
-	public Double getTotalsmb() {
-		return totalsmb;
-	}
+    private String spareClubregisteredphoneC;
 
-	public void setTotalsmb(Double totalsmb) {
-		this.totalsmb = totalsmb;
-	}
+    private Date purchasecontractNewC;
 
-	public Double getAvailablesmb() {
-		return availablesmb;
-	}
+    private Date complaintsadviceNewC;
 
-	public void setAvailablesmb(Double availablesmb) {
-		this.availablesmb = availablesmb;
-	}
+    private String spareBahnsC;
 
-	public Double getExchangedsmb() {
-		return exchangedsmb;
-	}
+    private Date productorderNewC;
 
-	public void setExchangedsmb(Double exchangedsmb) {
-		this.exchangedsmb = exchangedsmb;
-	}
+    private String clubuserC;
 
-	public String getGenderC() {
+    private String createdbyid;
+
+    private String clubemailC;
+
+    private String shippingaddressC;
+
+    private Boolean housingC;
+
+    private String cusidC;
+
+    private String whetherbindC;
+
+    private Date initiationtimeC;
+
+    private String clubpasswordC;
+
+    private String wechatnameC;
+
+    private String areaC;
+
+    private Boolean recommendfreezeC;
+
+    private String clubpasswordtextC;
+
+    public String getGenderC() {
         return genderC;
     }
 
@@ -155,14 +135,6 @@ public class AccountSource {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
-    }
-
-    public String getPermanentaddressC() {
-        return permanentaddressC;
-    }
-
-    public void setPermanentaddressC(String permanentaddressC) {
-        this.permanentaddressC = permanentaddressC == null ? null : permanentaddressC.trim();
     }
 
     public String getContactaddressC() {
@@ -285,11 +257,219 @@ public class AccountSource {
         this.commonlyphoneC = commonlyphoneC == null ? null : commonlyphoneC.trim();
     }
 
-    public String getGuid() {
-        return guid;
+    public Double getGrantingsmbcontractcountC() {
+        return grantingsmbcontractcountC;
     }
 
-    public void setGuid(String guid) {
-        this.guid = guid == null ? null : guid.trim();
+    public void setGrantingsmbcontractcountC(Double grantingsmbcontractcountC) {
+        this.grantingsmbcontractcountC = grantingsmbcontractcountC;
+    }
+
+    public String getAccountsource() {
+        return accountsource;
+    }
+
+    public void setAccountsource(String accountsource) {
+        this.accountsource = accountsource == null ? null : accountsource.trim();
+    }
+
+    public Double getPendingapprovalsmbC() {
+        return pendingapprovalsmbC;
+    }
+
+    public void setPendingapprovalsmbC(Double pendingapprovalsmbC) {
+        this.pendingapprovalsmbC = pendingapprovalsmbC;
+    }
+
+    public Double getTotalsmbC() {
+        return totalsmbC;
+    }
+
+    public void setTotalsmbC(Double totalsmbC) {
+        this.totalsmbC = totalsmbC;
+    }
+
+    public Double getAvailablesmbC() {
+        return availablesmbC;
+    }
+
+    public void setAvailablesmbC(Double availablesmbC) {
+        this.availablesmbC = availablesmbC;
+    }
+
+    public Double getExchangedsmbC() {
+        return exchangedsmbC;
+    }
+
+    public void setExchangedsmbC(Double exchangedsmbC) {
+        this.exchangedsmbC = exchangedsmbC;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public Boolean getIsdeleteC() {
+        return isdeleteC;
+    }
+
+    public void setIsdeleteC(Boolean isdeleteC) {
+        this.isdeleteC = isdeleteC;
+    }
+
+    public String getSpareCommonlyphoneC() {
+        return spareCommonlyphoneC;
+    }
+
+    public void setSpareCommonlyphoneC(String spareCommonlyphoneC) {
+        this.spareCommonlyphoneC = spareCommonlyphoneC == null ? null : spareCommonlyphoneC.trim();
+    }
+
+    public String getSpareClubregisteredphoneC() {
+        return spareClubregisteredphoneC;
+    }
+
+    public void setSpareClubregisteredphoneC(String spareClubregisteredphoneC) {
+        this.spareClubregisteredphoneC = spareClubregisteredphoneC == null ? null : spareClubregisteredphoneC.trim();
+    }
+
+    public Date getPurchasecontractNewC() {
+        return purchasecontractNewC;
+    }
+
+    public void setPurchasecontractNewC(Date purchasecontractNewC) {
+        this.purchasecontractNewC = purchasecontractNewC;
+    }
+
+    public Date getComplaintsadviceNewC() {
+        return complaintsadviceNewC;
+    }
+
+    public void setComplaintsadviceNewC(Date complaintsadviceNewC) {
+        this.complaintsadviceNewC = complaintsadviceNewC;
+    }
+
+    public String getSpareBahnsC() {
+        return spareBahnsC;
+    }
+
+    public void setSpareBahnsC(String spareBahnsC) {
+        this.spareBahnsC = spareBahnsC == null ? null : spareBahnsC.trim();
+    }
+
+    public Date getProductorderNewC() {
+        return productorderNewC;
+    }
+
+    public void setProductorderNewC(Date productorderNewC) {
+        this.productorderNewC = productorderNewC;
+    }
+
+    public String getClubuserC() {
+        return clubuserC;
+    }
+
+    public void setClubuserC(String clubuserC) {
+        this.clubuserC = clubuserC == null ? null : clubuserC.trim();
+    }
+
+    public String getCreatedbyid() {
+        return createdbyid;
+    }
+
+    public void setCreatedbyid(String createdbyid) {
+        this.createdbyid = createdbyid == null ? null : createdbyid.trim();
+    }
+
+    public String getClubemailC() {
+        return clubemailC;
+    }
+
+    public void setClubemailC(String clubemailC) {
+        this.clubemailC = clubemailC == null ? null : clubemailC.trim();
+    }
+
+    public String getShippingaddressC() {
+        return shippingaddressC;
+    }
+
+    public void setShippingaddressC(String shippingaddressC) {
+        this.shippingaddressC = shippingaddressC == null ? null : shippingaddressC.trim();
+    }
+
+    public Boolean getHousingC() {
+        return housingC;
+    }
+
+    public void setHousingC(Boolean housingC) {
+        this.housingC = housingC;
+    }
+
+    public String getCusidC() {
+        return cusidC;
+    }
+
+    public void setCusidC(String cusidC) {
+        this.cusidC = cusidC == null ? null : cusidC.trim();
+    }
+
+    public String getWhetherbindC() {
+        return whetherbindC;
+    }
+
+    public void setWhetherbindC(String whetherbindC) {
+        this.whetherbindC = whetherbindC == null ? null : whetherbindC.trim();
+    }
+
+    public Date getInitiationtimeC() {
+        return initiationtimeC;
+    }
+
+    public void setInitiationtimeC(Date initiationtimeC) {
+        this.initiationtimeC = initiationtimeC;
+    }
+
+    public String getClubpasswordC() {
+        return clubpasswordC;
+    }
+
+    public void setClubpasswordC(String clubpasswordC) {
+        this.clubpasswordC = clubpasswordC == null ? null : clubpasswordC.trim();
+    }
+
+    public String getWechatnameC() {
+        return wechatnameC;
+    }
+
+    public void setWechatnameC(String wechatnameC) {
+        this.wechatnameC = wechatnameC == null ? null : wechatnameC.trim();
+    }
+
+    public String getAreaC() {
+        return areaC;
+    }
+
+    public void setAreaC(String areaC) {
+        this.areaC = areaC == null ? null : areaC.trim();
+    }
+
+    public Boolean getRecommendfreezeC() {
+        return recommendfreezeC;
+    }
+
+    public void setRecommendfreezeC(Boolean recommendfreezeC) {
+        this.recommendfreezeC = recommendfreezeC;
+    }
+
+    public String getClubpasswordtextC() {
+        return clubpasswordtextC;
+    }
+
+    public void setClubpasswordtextC(String clubpasswordtextC) {
+        this.clubpasswordtextC = clubpasswordtextC == null ? null : clubpasswordtextC.trim();
     }
 }
