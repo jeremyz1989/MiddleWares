@@ -117,7 +117,7 @@ private ErrorMessage error;
 	       return responseJson;
    }
    catch(Exception err){
-       return error.errorHandle(FinalUtil.API_ERROR_CODE__1,null);//  -1
+       return error.errorHandle(FinalUtil.API_ERROR_CODE_1,null);//  -1
    }
 	}
 }

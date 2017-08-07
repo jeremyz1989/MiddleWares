@@ -1,8 +1,5 @@
 package com.celnet.dc.controller;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,32 +7,22 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-//import javax.ws.rs.core.Context;
-//import javax.ws.rs.core.HttpHeaders;
-//import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Context;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.http.Header;
-import org.apache.http.HttpMessage;
-import org.apache.http.HttpRequest;
 import org.apache.http.message.BasicNameValuePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.celnet.dc.common.util.FinalUtil;
 import com.celnet.dc.common.util.HttpClientUtil;
 import com.celnet.dc.domain.AccountSource;
 import com.celnet.dc.domain.SystemParamter;
-import com.celnet.dc.domain.api.request.RequestJson;
 import com.celnet.dc.domain.api.response.ResponseJson;
 import com.celnet.dc.service.AccountSourceService;
 import com.celnet.dc.service.InterfaceService;
@@ -45,7 +32,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/")
 @Api("系统参数-相关api") // 用在类上，说明该类的作用
-public class InterfaceServiceController extends ApiServiceController{
+public class InterfaceServiceController{
 	
 	// 创建线程安全的Map
 	static Map<String, SystemParamter> systemParamters = Collections.synchronizedMap(new HashMap<String, SystemParamter>());
@@ -77,22 +64,22 @@ public class InterfaceServiceController extends ApiServiceController{
 		
 		ResponseJson result = new ResponseJson();
 		//签名验证
-		String code = this.headerVerification(request);
-		if(!FinalUtil.API_ERROR_CODE_0.equals(code)){
-			result=new ResponseJson(code,FinalUtil.getErrorMsg(code));
-			return result;
-		}
-		
-		RequestJson requestJson = new RequestJson(request);
+//		String code = this.headerVerification(request);
+//		if(!FinalUtil.API_ERROR_CODE_0.equals(code)){
+//			result=new ResponseJson(code,FinalUtil.getErrorMsg(code));
+//			return result;
+//		}
+//		
+//		RequestJson requestJson = new RequestJson(request);
 		String sfid = obj.getString("id");
-		System.out.println("id=" + sfid);
-		//接口，版本号校验
-		code = this.doPost(requestJson);
-		System.out.println(code);
-		if(!FinalUtil.API_ERROR_CODE_0.equals(code)){
-			result=new ResponseJson(code,FinalUtil.getErrorMsg(code));
-			return result;
-		}
+//		System.out.println("id=" + sfid);
+//		//接口，版本号校验
+//		code = this.doPost(requestJson);
+//		System.out.println(code);
+//		if(!FinalUtil.API_ERROR_CODE_0.equals(code)){
+//			result=new ResponseJson(code,FinalUtil.getErrorMsg(code));
+//			return result;
+//		}
 		//String sfid = "0012800000mHh4AAAS";
 		if(sfid == null || sfid.equals("") ){
 			//缺少必填参数

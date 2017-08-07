@@ -15,7 +15,7 @@ public class FinalUtil {
 	public  static final  String getErrorMsg(String code) {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put(API_ERROR_CODE_0, API_ERROR_MSG_0); // 成功
-		map.put(API_ERROR_CODE__1, API_ERROR_MSG__1); // 未知错误
+		map.put(API_ERROR_CODE_1, API_ERROR_MSG_1); // 未知错误
 		map.put(API_ERROR_CODE_1001, API_ERROR_MSG_1001); // 缺少必须参数[%s]
 		map.put(API_ERROR_CODE_1002, API_ERROR_MSG_1002); // 参数类型错误[%s]
 		map.put(API_ERROR_CODE_1003, API_ERROR_MSG_1003); // 不支持的请求方式
@@ -91,8 +91,8 @@ public class FinalUtil {
 	public static final String API_ERROR_CODE_0 = "0";
 	public static final String API_ERROR_MSG_0 = "成功";
 
-	public static final String API_ERROR_CODE__1 = "-1";
-	public static final String API_ERROR_MSG__1 = "未知错误";
+	public static final String API_ERROR_CODE_1 = "-1";
+	public static final String API_ERROR_MSG_1 = "未知错误";
 
 	public static final String API_ERROR_CODE_1001 = "1001";
 	public static final String API_ERROR_MSG_1001 = "缺少必须参数[%s]";
