@@ -31,6 +31,10 @@
     <result column="projectname__c" jdbcType="VARCHAR" property="projectnameC" />
     <result column="propertyid__c" jdbcType="VARCHAR" property="propertyidC" />
     <result column="createdbyid" jdbcType="VARCHAR" property="createdbyid" />
+    <result column="turnapproval__c" jdbcType="VARCHAR" property="turnapprovalC" />
+    <result column="istimingupdate__c" jdbcType="BIT" property="isTimingUpdate" />
+    <result column="eventsource__c" jdbcType="VARCHAR" property="eventSourceC" />
+    <result column="eventtype__c" jdbcType="VARCHAR" property="eventTypeC" />
   </resultMap>
   <sql id="Base_Column_List">
     id, acceptancetime__c, customername__c, completiontime__c, _hc_err, owner__c, callerid__c, 
@@ -38,7 +42,7 @@
     sfid, propertyprocessinginformation__c, publicarea__c, maintenanceprocessinginformation__c, 
     sendbusinesstype__c, distributionstatus__c, receiverphone__c, receiver__c, returnreason__c, 
     eventproperties__c, eventclassification__c, housinginfor__c, projectname__c, propertyid__c,
-    createdbyid
+    createdbyid,turnapproval__c,istimingupdate__c,eventsource__c,eventtype__c
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -51,7 +55,15 @@
 		select
 		<include refid="Base_Column_List" />
 		from complaintsadvice__c
-		where sfid = 'a072800000B4vx5AAB'
+		where sendbusinesstype__c is not NULL
+			AND istimingupdate__c = 't'
+			AND sendbusinesstype__c != ''
+			AND projectname__c is not NULL
+			AND projectname__c != ''
+			AND housinginfor__c is not NULL
+			AND housinginfor__c != ''
+			AND customername__c is not NULL
+			AND customername__c != ''
 	</select>
 	
    <update id="updateWoId" parameterType="com.celnet.dc.domain.ComplaintsAdviceC" >
@@ -60,6 +72,7 @@
       <if test="propertyidC != null" >
         propertyid__c = #{propertyidC,jdbcType=VARCHAR},
       </if>
+      istimingupdate__c = 'f'
     </set>
     where sfid = #{sfid,jdbcType=VARCHAR}
 

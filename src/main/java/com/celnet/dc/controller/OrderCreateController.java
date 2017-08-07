@@ -88,8 +88,9 @@ public class OrderCreateController {
 			map.put("complainType", "1");
 			//根据工单的id，查询房源id
 			String houseSfid = purchaseContractService.getHouseSfid(complain.getSfid());
+			System.out.println(houseSfid + "--------------");
 			map.put("roomId", houseSfid);
-			map.put("problemTheme", complain.getEventpropertiesC());
+			map.put("problemTheme", complain.getEventSourceC() + complain.getEventTypeC());
 			map.put("problemDesc", complain.getEventpropertiesC());
 			//根据请求人sfid查询客户姓名
 			if(StringUtil.isNotEmpty(accountService.getAccountName(complain.getCustomernameC()))){
@@ -104,6 +105,10 @@ public class OrderCreateController {
 			//报修类别bxTypeCode
 			map.put("bxTypeCode", "1");
 			map.put("checkListSource", "4");
+			//转单审核状态
+			map.put("auditStatus", complain.getTurnapprovalC());
+			//退回理由
+			map.put("returnReason", complain.getReturnreasonC());
 			orderList.add(map);
 		}
 //		Map<String,List<Map<String,String>>> orderMap = new HashMap<String,List<Map<String,String>>>();
@@ -173,10 +178,14 @@ public class OrderCreateController {
 		for(OrderResponseJson order : resList){
 			//将工单id更新到本地投诉建议表
 			ComplaintsAdviceC complaint = new ComplaintsAdviceC();
-			complaint.setPropertyidC(order.getWoId());
-			complaint.setSfid(order.getWorkOrderSFID());
-			complaintAdviceService.updateWoId(complaint);
-			System.out.println("工单id" + order.getWoId());
+			if(StringUtil.isNotEmpty(order.getWoId())){
+				complaint.setPropertyidC(order.getWoId());
+				complaint.setSfid(order.getWorkOrderSFID());
+				complaintAdviceService.updateWoId(complaint);
+				System.out.println("工单id" + order.getWoId());
+			}else{
+				System.out.println("失败");
+			}
 		}
 		}catch (JSONException e){
 			System.out.println("出错");

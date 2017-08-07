@@ -60,8 +60,48 @@ public class ComplaintsAdviceC {
     private String propertyidC;
     
     private String createdbyid;
+    
+    private String turnapprovalC;
+    
+    private Boolean isTimingUpdate;
+    
+    private String eventSourceC;
+    
+    private String eventTypeC;
 
-    public String getCreatedbyid() {
+    public String getEventTypeC() {
+		return eventTypeC;
+	}
+
+	public void setEventTypeC(String eventTypeC) {
+		this.eventTypeC = eventTypeC;
+	}
+
+	public String getEventSourceC() {
+		return eventSourceC;
+	}
+
+	public void setEventSourceC(String eventSourceC) {
+		this.eventSourceC = eventSourceC;
+	}
+
+	public Boolean getIsTimingUpdate() {
+		return isTimingUpdate;
+	}
+
+	public void setIsTimingUpdate(Boolean isTimingUpdate) {
+		this.isTimingUpdate = isTimingUpdate;
+	}
+
+	public String getTurnapprovalC() {
+		return turnapprovalC;
+	}
+
+	public void setTurnapprovalC(String turnapprovalC) {
+		this.turnapprovalC = turnapprovalC;
+	}
+
+	public String getCreatedbyid() {
 		return createdbyid;
 	}
 

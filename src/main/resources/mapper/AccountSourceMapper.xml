@@ -42,13 +42,13 @@
   <select id="getAccount" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from account_source
+    from accountsource
     where sfid = #{id}
   </select>
   
   <select id="getAccountNew" resultMap="BaseResultMap" >
   	select sfid,name,clubregisteredphone__c,bahns__c
-  	from account_source
+  	from accountsource
   	where sfid in 
   	(select customer__c from customerhousebinding__c where systemmodstamp > (select value__c from systemparamter__c where name = 'account_update')::TIMESTAMP)
   	<!-- select * from customerhousebinding__c where systemmodstamp > (select value__c from systemparamter__c where name = 'account_update')::TIMESTAMP -->

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Enumeration;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +46,11 @@ public class ApiCheck {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         
-        
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while(headerNames.hasMoreElements()){
+        	String str = headerNames.nextElement();
+        	System.out.println("请求头：" + str + ":" + request.getHeader(str));
+        }
         System.out.println("请求地址 : " + request.getRequestURL().toString());
         System.out.println("HTTP METHOD : " + request.getMethod());
         System.out.println("IP : " + request.getRemoteAddr());
